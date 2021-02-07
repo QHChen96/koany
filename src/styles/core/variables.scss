@@ -1,0 +1,17 @@
+:root {
+  --primary: 91, 60, 96;
+  --success: 23, 201, 100;
+  --danger: 242, 19, 93;
+  --warn: 254, 130, 0;
+  --dark: 36, 33, 69;
+  --theme-bg: #f4f7f8;
+  --theme-bg2: #eef2f5;
+  --theme-color: #2c3e50;
+  --sm: '640px';
+  --md: '768px';
+  --lg: '1024px';
+  --xl: '1280px';
+  --xxl: '1536px';
+}
+$sizes: 'sm','md','lg','xl','xxl';
+$opacities: 0,5,10,20,25,30,40,50,60,70,75,80,90,95,100;

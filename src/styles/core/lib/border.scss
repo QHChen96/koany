@@ -1,0 +1,57 @@
+// @import '../variables.scss';
+
+.rounded-full {
+  border: 9999px;
+}
+.border {
+  --border-width: 1;
+  border-width: val(--border-width)px;
+}
+.border-0 {
+  border-width: 0px;
+}
+.border-transparent {
+  border-color: transparent;
+}
+.border-current {
+  border-color: currentColor;
+}
+.border-black {
+  --border-opacity: 1;
+  border-color: rgba(0, 0, 0, var(--border-opacity));
+}
+.border-white {
+  --border-opacity: 1;
+  border-color: rgba(255, 255, 255, var(--border-opacity));
+}
+.border-solid {
+  border-style: solid;
+}
+.border-dashed {
+  border-style: dashed;
+}
+.border-dotted {
+  border-style: dotted;
+}
+.border-double {
+  border-style: double;
+}
+.border-none {
+  border-style: none;
+}
+
+@each $i in $opacities {
+  .text-opacity-#{$i} {
+    --text-opacity: #{$i * 0.01};
+  }
+}
+@each $i in $opacities {
+  .bg-opacity-#{$i} {
+    --bg-opacity: #{$i * 0.01};
+  }
+}
+@each $i in $opacities {
+  .border-opacity-#{$i} {
+    --border-opacity: #{$i * 0.01};
+  }
+}

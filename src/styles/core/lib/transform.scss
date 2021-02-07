@@ -1,0 +1,88 @@
+.transform {
+  --translate-x: 0;
+  --translate-y: 0;
+  --rotate: 0;
+  --skew-x: 0;
+  --skew-y: 0;
+  --scale-x: 1;
+  --scale-y: 1;
+  transform: translateX(var(--translate-x)) translateY(var(--translate-y)) rotate(var(--rotate)) skewX(var(--skew-x)) skewY(var(--skew-y)) scaleX(var(--scale-x)) scaleY(var(--scale-y));
+}
+.transform-gpu {
+  --translate-x: 0;
+  --translate-y: 0;
+  --rotate: 0;
+  --skew-x: 0;
+  --skew-y: 0;
+  --scale-x: 1;
+  --scale-y: 1;
+  transform: translate3d(var(--translate-x), var(--translate-y), 0) rotate(var(--rotate)) skewX(var(--skew-x)) skewY(var(--skew-y)) scaleX(var(--scale-x)) scaleY(var(--scale-y));
+}
+.transform-none {
+  transform: none;
+}
+
+.origin-center {
+  transform-origin: center;
+}
+.origin-top {
+  transform-origin: top;
+}
+.origin-top-right {
+  transform-origin: top right;
+}
+.origin-right {
+  transform-origin: right;
+}
+.origin-bottom-right {
+  transform-origin: bottom right;
+}
+.origin-bottom {
+  transform-origin: bottom;
+}
+.origin-bottom-left {
+  transform-origin: bottom left;
+}
+.origin-left {
+  transform-origin: left;
+}
+.origin-top-left {
+  transform-origin: top left;
+}
+
+$scales: 0,50,75,90,95,100,105,110,125,150;
+@each $scale in $scales {
+  .scale-#{$scale} {
+    --scale-x: #{$scale * 0.01};
+    --scale-y: #{$scale * 0.01};
+  }
+  .scale-x-#{$scale} {
+    --scale-x: #{$scale * 0.01};
+  }
+  .scale-y-#{$scale} {
+    --scale-y: #{$scale * 0.01};
+  }
+}
+
+$rotates: 1,2,3,6,12,45,90,180;
+.rotate-0 {
+  --rotate-0: 0deg;
+}
+@each $rotate in $rotates {
+  .rotate-#{$rotate} {
+    --rotate: #{$rotate}deg;
+  }
+  .-rotate-#{$rotate} {
+    --rotate: #{$rotate}deg;
+  }
+}
+
+$skews: 0,1,2,3,6,12;
+@each $skew in $skews {
+  .skew-x-#{$skew} {
+    --skew-x: #{$skew}deg;
+  }
+  .skew-y-#{$skew} {
+    --skew-y: #{$skew}deg;
+  }
+}

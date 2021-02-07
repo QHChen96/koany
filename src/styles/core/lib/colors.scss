@@ -1,0 +1,6 @@
+// @import '../variables.scss';
+@each $i in $opacities {
+  .opacity-#{$i} {
+    opacity: #{$i * 0.01};
+  }
+}

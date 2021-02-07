@@ -1,0 +1,109 @@
+.koany-nav-bar__capsule-left, .koany-nav-bar__capsule-right{
+  width: 49%;
+  height: 56%;
+}
+.koany-nav-bar__capsule-left::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  bottom: -50%;
+  right: 0;
+  left: -5%;
+}
+.koany-nav-bar__capsule-right::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  bottom: -50%;
+  right: -5%;
+  left: 0;
+}
+.koany-nav-bar__capsule-left {
+  padding: 0 11% 0 16%;
+}
+.koany-nav-bar__capsule-middle {
+  width: 3PX;
+  height: 58%;
+  transform: scaleX(.2);
+  background: #7d7d7d;
+}
+.koany-nav-bar__capsule-right {
+  padding: 0 16% 0 11%;
+}
+.koany-nav-bar__half-capsule-left::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  bottom: -50%;
+  right: -8%;
+  left: -8%;
+}
+.koany-nav-bar__half-capsule-right::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  bottom: -50%;
+  right: -5%;
+  left: 0;
+}
+.koany-nav-bar__half-capsule-icon {
+  width: 40px;
+  height: 40px;
+}
+.koany-nav-bar__main-content-title {
+  line-height: 32PX;
+}
+.koany-nav-bar__menu-triangle {
+  border: 16px solid transparent;
+  border-bottom-color: #fff;
+  filter: drop-shadow(0 -4rpx 6rpx rgba(0,0,0,.04));
+}
+.koany-nav-bar__menu-container {
+  position: relative;
+  box-sizing: border-box;
+  margin-left: 16px;
+  padding: 10px 0;
+  left: 0;
+  width: 232px;
+  text-align: center;
+  border-radius: 10px;
+  transition: all .3s;
+  opacity: .98;
+  background: #fff;
+  box-shadow: 0 4px 22px 10px rgba(0,0,0,.05);
+}
+
+.koany-nav-bar__menu-item {
+  margin-left: 30px;
+  padding: 10px 0;
+  height: 80px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  font-size: 13px;
+  text-align: left;
+  font-weight: 500;
+  color: #909dc2;
+  cursor: pointer;
+}
+
+.koany-nav-bar__menu-item:not(:last-child) {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.koany-nav-bar__menu-item-icon {
+  width: 40px;
+  height: 40px;
+  padding: 0 20px 0 0;
+}
+
+.koany-nav-bar__menu-item-name {
+  font-size: 28px;
+  line-height: 40px;
+  font-weight: 400;
+  color: #333;
+  letter-spacing: 0;
+}
+.z-top {
+  z-index: 1002;
+}
