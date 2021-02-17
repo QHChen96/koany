@@ -50,7 +50,9 @@
 .font-black {
   font-weight: 900;
 }
-
+.lh-1 {
+  line-height: 1;
+}
 
 .normal-nums {
   font-variant-numeric: normal;
@@ -193,4 +195,7 @@
 }
 .break-all {
   overflow-wrap: break-all;
+}
+.word-break-all {
+  word-break: break-all;
 }

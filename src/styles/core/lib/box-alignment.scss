@@ -10,9 +10,6 @@
 .justify-between {
   justify-content: space-between;
 }
-.justify-between {
-  justify-content: space-between;
-}
 .justify-around {
   justify-content: space-around;
 }
@@ -70,7 +67,7 @@
 .items-start {
   align-items: flex-start;
 }
-.items-start {
+.items-end {
   align-items: flex-end;
 }
 .items-center {
@@ -96,6 +93,9 @@
 }
 .self-stretch {
   align-self: stretch;
+}
+.self-baseline {
+  align-self: baseline;
 }
 .place-content-center {
   place-content: center;

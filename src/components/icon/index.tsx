@@ -5,14 +5,26 @@ export interface IconProps {
   type: string;
   size?: number;
   color?: string;
+  className?: string;
+  onClick?: () => void;
 }
 const Icon: React.FC<IconProps> = ({
   type,
-  size=15,
-  color='#333333'
+  size=16,
+  color='',
+  className='',
+  onClick
 }) => {
+
+  const handleClick = () => {
+    onClick && onClick();
+  }
   return (
-    <View className={`inline-block iconfont icon-${type}`} style={{ fontSize: size, color: color }}></View>
+    <View 
+      className={`inline-block iconfont icon-${type} normal-case lh-1 ${className}`} 
+      style={`font-size: ${size}px; ${color ? `color:${color}` : ''}`}
+      onClick={handleClick}>
+    </View>
   );
 }
 

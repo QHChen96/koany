@@ -1,0 +1,11 @@
+
+.koany-cart-top-bar {
+  &.fixed {
+    z-index: 20;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    border-radius: unset;
+  }
+}

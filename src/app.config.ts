@@ -1,9 +1,9 @@
 export default {
   pages: [
-
+    'pages/cart/index',
     'pages/index/index',
     'pages/cate/index',
-    'pages/cart/index',
+    
     'pages/my/index',
   ],
   window: {
@@ -14,8 +14,8 @@ export default {
   },
   tabBar: {
     color: '#666',
-    selectedColor: '#e3e3e3',
-    borderStyle: 'black',
+    selectedColor: '#ff0000',
+    borderStyle: 'white',
     backgroundColor: '#fff',
     list: [
       {
@@ -27,8 +27,8 @@ export default {
       {
         pagePath: 'pages/cate/index',
         text: '分类',
-        iconPath: 'assets/images/tab-bar/category.png',
-        selectedIconPath: 'assets/images/tab-bar/category-on.png'
+        iconPath: 'assets/images/tab-bar/cate.png',
+        selectedIconPath: 'assets/images/tab-bar/cate-on.png'
       },
       {
         pagePath: 'pages/cart/index',

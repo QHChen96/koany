@@ -1,0 +1,5 @@
+.koany-cart-product__discount-item:not(:first-child) {
+  &:not(:first-child) {
+    margin-left: 16px;
+  }
+}

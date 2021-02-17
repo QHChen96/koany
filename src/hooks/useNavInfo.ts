@@ -3,7 +3,6 @@ import Taro from '@tarojs/taro';
 import { NavBarInfo } from '../../global';
 
 const useNavInfo = ():[ NavBarInfo ] => {
-  console.log('useNavInfo');
   const app = Taro.getApp();
   if (app.navInfo) {
     return [{ ...app.navInfo }];
@@ -44,6 +43,7 @@ const useNavInfo = ():[ NavBarInfo ] => {
       brand,
       model
     };
+    app.systemInfo = sysInfo;
     return [{...app.navInfo}];
   }
 

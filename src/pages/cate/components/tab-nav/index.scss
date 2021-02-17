@@ -1,0 +1,19 @@
+.tab__item--cur {
+  background: #fff;
+  font-size: 30px;
+  color: #2e2d2d;
+  font-weight: 700;
+  position: relative;
+  &::before {
+    content: "";
+    width: 8px;
+    height: 30px;
+    background: #f0250f;
+    display: block;
+    position: absolute;
+    border-radius: 16px;
+    left: 0;
+    top: 50%;
+    margin-top: -15px;
+  }
+}

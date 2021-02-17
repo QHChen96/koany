@@ -177,3 +177,6 @@
 .mb-0 {
   margin-bottom: 0px;
 }
+.pb-safe {
+  padding-bottom: env(safe-area-inset-bottom);
+}

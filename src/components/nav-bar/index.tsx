@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import Taro, { getCurrentPages } from '@tarojs/taro';
+import { getCurrentPages } from '@tarojs/taro';
 import { View, Image, Text } from '@tarojs/components'
 import NavBarBlackBack from '@/assets/images/navbar/navbar_back_black.png';
 import NavBarWhiteBack from '@/assets/images/navbar/navbar_back_white.png';
@@ -137,7 +137,6 @@ const NavBar: React.FC<NavBarProps> = ({
   })
 
   useEffect(() => {
-    console.log('init nav-bar...');
     const {
       capsuleMarginLeft,
       capsuleWidth,
@@ -205,6 +204,8 @@ const NavBar: React.FC<NavBarProps> = ({
     [isShowMenu],
   );
 
+  const handleClickMenuItem = () => {}
+
   const handleSearch = () => {}
 
   const handleHideMenu = () => { setIsShowMenu(false) };
@@ -212,7 +213,6 @@ const NavBar: React.FC<NavBarProps> = ({
   useEffect(() => {
 
   }, [])
-  console.log(navBarData)
   return (
     <View className={`${blockName} fixed w-full t-0 c-black`} style={{ height: navBarData.navHeight }}>
       <View className={`${blockName}__status-bar`} style={{ height: navBarData.statusBarHeight, background: background }}></View>
@@ -317,7 +317,7 @@ const NavBar: React.FC<NavBarProps> = ({
             <View className={`${blockName}__menu-container`}>
               {
                 menus.map(menu => (
-                  <View className={`${blockName}__menu-item`} key={menu.menuName}>
+                  <View onClick={handleClickMenuItem} className={`${blockName}__menu-item`} key={menu.menuName}>
                     <Image className={`${blockName}__menu-item-icon`} src={menu.menuIcon} />
                     <Text className={`${blockName}__menu-item-name`}>{menu.menuName}</Text>
                   </View>
@@ -328,7 +328,6 @@ const NavBar: React.FC<NavBarProps> = ({
         )
       }
     </View>
-
   );
 }
 

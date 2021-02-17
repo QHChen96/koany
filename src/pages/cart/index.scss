@@ -1,0 +1,7 @@
+.koany-cart {
+  .placeholder {
+    height: 98px;
+    height: calc(98px + constant(safe-area-inset-bottom));
+    height: calc(98px + env(safe-area-inset-bottom));
+  }
+}

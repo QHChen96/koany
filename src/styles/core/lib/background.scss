@@ -34,6 +34,9 @@
   --bg-opacity: 1;
   background-color: rgba(255, 255, 255, var(--bg-opacity));
 }
+.bg-inherit {
+  background: inherit; 
+}
 .bg-bottom {
   background-position: bottom;
 }

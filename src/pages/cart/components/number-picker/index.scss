@@ -1,0 +1,21 @@
+.koany-number-picker {
+  position: relative;
+  display: flex;
+  height: 54px;
+  align-items: center;
+  text-align: center;
+  font-size: 22px;
+  &__number-input {
+    flex: 1 0 auto;
+    display: inline-block;
+    position: relative;
+    box-sizing: border-box;
+    width: 72px;
+    min-height: 36px;
+    vertical-align: middle;
+    color: #262626;
+    margin: 0 4px;
+    border-radius: 4px;
+    background-color: #f2f2f2;
+  }
+}
