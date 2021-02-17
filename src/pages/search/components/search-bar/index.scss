@@ -1,0 +1,54 @@
+.koany-search-search-bar {
+  &-tags {
+    position: absolute;
+    left: 30PX;
+    right: 0;
+    top: 0;
+    z-index: 2;
+    height: 100%;
+    width: auto;
+    overflow-y: hidden;
+    overflow-x: auto;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+    border-radius: 32px;
+    &::-webkit-scrollbar {
+      display: none;
+      width: 0;
+      height: 0;
+    }
+  }
+  &-tag {
+    position: relative;
+    display: inline-block;
+    line-height: 40px;
+    height: 40px;
+    margin: 12px 0 0 12px;
+    padding: 0 36px 0 12px;
+    background-color: #8c8c8c;
+    border-radius: 20px;
+    color: #fff;
+    font-size: 24px;
+    overflow: hidden;
+    white-space: nowrap;
+    &:last-child {
+      margin-right: 30PX;
+    }
+  }
+  &-tag-clear {
+    position: absolute;
+    right: 0;
+    top: 0;
+    display: inline-block;
+    text-align: center;
+    height: 40px;
+    width: 36px;
+  }
+  &-category {
+    line-height: 64px;
+    color: #777;
+  }
+  &-act {
+    height: 64px;
+  }
+}

@@ -10,6 +10,7 @@ import NavBarWhiteMenu from '@/assets/images/navbar/navbar_menu_white.png';
 import './index.scss';
 
 import useNavInfo from '../../hooks/useNavInfo';
+import Taro from '@tarojs/taro';
 
 const blockName = 'koany-nav-bar';
 
@@ -165,7 +166,7 @@ const NavBar: React.FC<NavBarProps> = ({
           mainContentWidth = screenWidth - (capsuleWidth + capsuleMarginLeft) - (halfCapsuleWidth + capsuleMarginLeft),
           triangleLeft = capsuleMarginLeft + 0.5 * halfCapsuleWidth - screenWidth / 750 * 16
         ) : ['miniReturn', 'miniMenu'].indexOf(_capsuleType) > -1 ? (
-          capsuleStyle = { ...capsuleStyle, paddingLeft: '4PX' } as any,
+          capsuleStyle = { paddingLeft: '4PX' } as any,
           titlePaddingLeft = mainContentMargin - ((halfCapsuleWidth = screenWidth / 750 * 40 + 8) + capsuleMarginLeft),
           mainContentWidth = screenWidth - (capsuleWidth + capsuleMarginLeft) - (halfCapsuleWidth + capsuleMarginLeft),
           triangleLeft = capsuleMarginLeft + 4 + 20 * screenWidth / 750 - 8 * screenWidth / 750 - 2) : (titlePaddingLeft = mainContentMargin,
@@ -192,9 +193,24 @@ const NavBar: React.FC<NavBarProps> = ({
         });
   }, []);
 
+  const handleReturn = () => {
+    console.log('return')
+    Taro.navigateBack();
+    onBack && onBack();
+  }
+  const handleGoHome = () => {
+    console.log('home')
+    Taro.switchTab({
+      url: '/page/index/index'
+    });
+    onHome && onHome();
+  }
+
   const handleClickLeft = useCallback(
-    () => {},
-    [],
+    () => {
+      navBarData.hasReturn && handleReturn() || handleGoHome();
+    },
+    [navBarData.hasReturn],
   );
 
   const handleClickRight = useCallback(
@@ -205,8 +221,6 @@ const NavBar: React.FC<NavBarProps> = ({
   );
 
   const handleClickMenuItem = () => {}
-
-  const handleSearch = () => {}
 
   const handleHideMenu = () => { setIsShowMenu(false) };
 
@@ -263,7 +277,7 @@ const NavBar: React.FC<NavBarProps> = ({
                   ...navBarData.capsuleStyle
                 }}
                 >
-                <View className={`${blockName}__half-capsule-left relative flex items-center justify-center h-full`}>
+                <View className={`${blockName}__half-capsule-left relative flex items-center justify-center h-full`} onClick={handleClickLeft}>
                   {
                     navBarData.hasReturn && (
                       <Image className={`${blockName}__half-capsule-icon`} src={ leftIconUrl || menuIcon[`${navBarData.foreColor}-back`]  } />
@@ -286,6 +300,7 @@ const NavBar: React.FC<NavBarProps> = ({
                   marginTop: navBarData.capsuleMarginTop,
                   ...navBarData.capsuleStyle
                 }}
+                onClick={handleClickRight}
                 >
                 <View className={`${blockName}__half-capsule-right relative flex items-center justify-center h-full`}>
                   <Image className={`${blockName}__half-capsule-icon`} src={ rightIconUrl || menuIcon[`${navBarData.foreColor}-menu`]  } />

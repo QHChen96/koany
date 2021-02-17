@@ -1,9 +1,9 @@
 export default {
   pages: [
-    'pages/cart/index',
     'pages/index/index',
+    'pages/search/index',
+    'pages/cart/index',
     'pages/cate/index',
-    
     'pages/my/index',
   ],
   window: {

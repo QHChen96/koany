@@ -5,12 +5,13 @@ import { Icon, Loading, NavBar, ErrRetry } from '@/components'
 import TabNav from './components/tab-nav'
 import { useNavInfo } from '@/hooks'
 import CateBanner from './components/cate-banner'
+import Taro from '@tarojs/taro';
 
 const blockName = `koany-cate`;
 
 export default (): React.ReactNode => {
   const [navInfo] = useNavInfo();
-  
+
   const [level1ScrollTop, setLevel1ScrollTop] = useState(0);
   const [level2ScrollTop, setLevel2ScrollTop] = useState(0);
   const [searchWordIdx, setSearchWordIdx] = useState(0);
@@ -52,8 +53,11 @@ export default (): React.ReactNode => {
   const handleTouchStart = () => {}
   const handleTouchEnd = () => {}
   const handleTouchMove = () => {}
-  const handleSearchBar = () => {}
-
+  const handleSearchBar = () => {
+    Taro.navigateTo({
+      url: `/pages/search/index`
+    })
+  }
 
   return (
     <View className={`${blockName}`}>
@@ -113,7 +117,7 @@ export default (): React.ReactNode => {
                           </View>
                         ))
                       }
-                     
+
                     </View>
                   </View>
                 ))

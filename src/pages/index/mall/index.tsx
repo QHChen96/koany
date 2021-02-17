@@ -1,16 +1,22 @@
 import React, { useState } from 'react';
+import Taro from '@tarojs/taro';
 import { View } from '@tarojs/components';
 import { NavBar } from '@/components';
 import { useNavInfo } from '@/hooks';
 import SearchBar from './components/search-bar';
 import Carousel from './components/carousel';
 
-
 const Mall = () => {
   const [navInfo] = useNavInfo();
   const config = {
     isShowLogo: false,
     logoImg: ''
+  }
+  const handleToSearch = async (keyword: string='') => {
+    console.log(`keyword`, keyword)
+    await Taro.navigateTo({
+      url: `/pages/search/index?keyword=${keyword}`
+    });
   }
 
   return (
@@ -32,7 +38,7 @@ const Mall = () => {
               )
             }
           </NavBar>
-          <SearchBar />
+          <SearchBar onToSearch={handleToSearch} />
         </View>
       </View>
       <View

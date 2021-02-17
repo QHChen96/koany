@@ -47,7 +47,7 @@ export default (): React.ReactNode => {
             margin: 0,
             labels: [],
             ext: {
-    
+
             },
             hidePrice: false,
             showPrice: [ 100, 2 ],
@@ -67,7 +67,7 @@ export default (): React.ReactNode => {
             margin: 10.01,
             labels: [],
             ext: {
-    
+
             },
             hidePrice: false,
             showPrice: [ 100, 2 ],
@@ -87,7 +87,7 @@ export default (): React.ReactNode => {
             margin: 10.01,
             labels: [],
             ext: {
-    
+
             },
             hidePrice: false,
             showPrice: [ 100, 2 ],
@@ -107,7 +107,7 @@ export default (): React.ReactNode => {
             margin: 10.01,
             labels: [],
             ext: {
-    
+
             },
             hidePrice: false,
             showPrice: [ 100, 2 ],
@@ -127,7 +127,7 @@ export default (): React.ReactNode => {
             margin: 10.01,
             labels: [],
             ext: {
-    
+
             },
             hidePrice: false,
             showPrice: [ 100, 2 ],
@@ -192,9 +192,8 @@ export default (): React.ReactNode => {
       isTop && (scrollTopRef.current = scrollTop);
       n && (isFixed !== addrFixed) && (setAddrFixed(n));
     }
-    console.log(addrFixed);
   }
-  
+
   usePageScroll(res => {
     handlePageScroll(res);
   });
@@ -209,8 +208,8 @@ export default (): React.ReactNode => {
       </NavBar>
       <PullRefresh
         enable={true}
-        height={navInfo.mainContentHeight > 0 ? navInfo.mainContentHeight : 44 } 
-        marginTop={navInfo.statusBarHeight} 
+        height={navInfo.mainContentHeight > 0 ? navInfo.mainContentHeight : 44 }
+        marginTop={navInfo.statusBarHeight}
         onScroll={handlePageScroll}
         onTouchStart={handleTouchStart}
         onTouchEnd={handleTouchEnd}
@@ -239,11 +238,11 @@ export default (): React.ReactNode => {
                     <View></View>
                     <View>购物车空空如也, 去逛逛吧</View>
                   </View>
-                ) 
+                )
               }
               <Fragment key={`cart-vender-item-${vender.id}`}>
-                <View 
-                  className="vender bg-white w-full" 
+                <View
+                  className="vender bg-white w-full"
                   style={{ marginTop: `20rpx`, padding: `36rpx 0`, fontSize: `26rpx`, color: `#262626`, borderRadius: `20rpx` }}>
                   <View className="header w-full black-26 flex items-center" style={{ top: `calc(${addrFixed ? `88rpx + ` : `0px + `}${navInfo.navHeight}px)` }}>
                     <View className="inline-block" style={{ paddingLeft: `36rpx`, paddingRight: `18rpx` }}>

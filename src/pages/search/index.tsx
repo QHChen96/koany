@@ -12,8 +12,8 @@ export default (): React.ReactNode => {
 
   return (
     <View className={`${blockName}`}>
-      <NavBar >
-        <SearchBar></SearchBar>
+      <NavBar capsuleType="miniReturn">
+        <SearchBar navHeight={navInfo.navHeight}></SearchBar>
       </NavBar>
       <View className="search-header">
         <View className="search-bar"></View>

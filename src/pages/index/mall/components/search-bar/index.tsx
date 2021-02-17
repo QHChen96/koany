@@ -17,7 +17,7 @@ const SearchBar: React.FC<SearchBarProps> = ({
     setCurrentIndex(event.detail.current);
   }
   const handleToSearch = () => {
-    onToSearch && onToSearch(searchWords[currentIndex])
+    onToSearch && onToSearch(searchWords[currentIndex]);
   }
 
   return (
