@@ -1,7 +1,7 @@
 export default {
   pages: [
-    'pages/index/index',
     'pages/search/index',
+    'pages/index/index',
     'pages/cart/index',
     'pages/cate/index',
     'pages/my/index',

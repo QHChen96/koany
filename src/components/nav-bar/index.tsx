@@ -201,7 +201,7 @@ const NavBar: React.FC<NavBarProps> = ({
   const handleGoHome = () => {
     console.log('home')
     Taro.switchTab({
-      url: '/page/index/index'
+      url: '/pages/index/index'
     });
     onHome && onHome();
   }

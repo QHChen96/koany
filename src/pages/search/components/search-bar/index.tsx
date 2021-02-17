@@ -11,23 +11,26 @@ export interface SearchBarProps {
   renderAct?: React.ReactNode;
   renderExtra?: React.ReactNode;
   keyword?: string;
-  onActive?: () => void;
+  isActive?: boolean;
+  onActive?: (isActive: boolean) => void;
   onChange?: () => void;
-  onSearch?: () => void;
+  onSearch?: (keyword: string) => void;
 }
 
 const SearchBar: React.FC<SearchBarProps> = ({
   navHeight=0,
   keyword='',
-  renderExtra
+  renderExtra,
+  isActive,
+  onActive,
+  onSearch
 }) => {
   const [placeholder, setPlaceHolder] = useState('');
-  const [isActive, setIsActive] = useState(true);
   const [scrollLeft, setScrollLeft] = useState(0);
   const [isFocus, setIsFocus] = useState(false);
   const [cursor, setCursor] = useState(0);
   const inputRef = useRef(null);
-  const category:any = {
+  const category:any = {} || {
     id: 1,
     name: '衣服呀'
   };
@@ -54,14 +57,20 @@ const SearchBar: React.FC<SearchBarProps> = ({
     text: '大礼包'
   }];
   const extraKeys: any[] = [];
-  const handleActive = () => {}
+  const handleActive = () => {
+    onActive && onActive(true);
+  }
   const handleDelete = () => {}
-  const handleSearch = () => {}
+  const handleSearch = (keyword: string) => {
+    onSearch && onSearch(keyword);
+  }
   const handleBlur = () => {}
   const handleConfirm = () => {}
   const handleFocus = () => {}
   const handleInput = () => {}
-  const handleClear = () => {}
+  const handleClear = () => {
+    onSearch && onSearch('');
+  }
   return (
     <View className={`${blockName}`} style={`${navHeight > 0 ? 'height: 100%' : ''}`}>
       <View className={`search-bar bg-white flex nav-height items-center relative z-1 text-left`}>
@@ -132,7 +141,14 @@ const SearchBar: React.FC<SearchBarProps> = ({
           }
         </View>
       </View>
-      <SmartBox historyWords={historyWords} hotWords={hotWords} isActive={isActive} keyword={keyword} navHeight={navHeight}></SmartBox>
+      <SmartBox
+        historyWords={historyWords}
+        hotWords={hotWords}
+        isActive={isActive}
+        keyword={keyword}
+        navHeight={navHeight}
+        onSearch={handleSearch}
+        ></SmartBox>
     </View>
   );
 };

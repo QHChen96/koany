@@ -19,6 +19,7 @@ export interface SmartBoxProps {
   keyword?: string;
   historyWords?: HistoryWord[];
   hotWords?: HotWord[];
+  onSearch?: (keyword: string) => void;
 }
 const SmartBox: React.FC<SmartBoxProps> = ({
   isActive,
@@ -27,6 +28,7 @@ const SmartBox: React.FC<SmartBoxProps> = ({
   children,
   historyWords=[],
   hotWords=[],
+  onSearch
 }) => {
   if (!isActive) {
     return null;
@@ -37,8 +39,12 @@ const SmartBox: React.FC<SmartBoxProps> = ({
   const handleClearHistory = () => {
     setHistoryWordsVisible(false);
   }
-  const handleClickHistory = () => {}
-  const handleClickHot = () => {}
+  const handleClickHistory = (word: string) => {
+    onSearch && onSearch(word);
+  }
+  const handleClickHot = (word: string) => {
+    onSearch && onSearch(word);
+  }
   const handleToggleHotVisible = () => {
     setHotWordsVisible(!hotWordsVisible);
   }
@@ -53,7 +59,7 @@ const SmartBox: React.FC<SmartBoxProps> = ({
                 <Fragment>
                   <View className={`${blockName}-panel-title`}>
                     <Text>搜索历史</Text>
-                    <View className={`${blockName}__clear-btn`} onClick={handleClearHistory}>
+                    <View className={`${blockName}__clear-btn`} onClick={() => handleClearHistory()}>
                       <Icon type="delete" />
                     </View>
                   </View>
@@ -61,7 +67,7 @@ const SmartBox: React.FC<SmartBoxProps> = ({
                     {
                       historyWords.map(item => (
                         <Fragment key={`history-word-${item.text}`}>
-                          <Text className={`${blockName}-tag`} onClick={handleClickHistory}>{item.text}</Text>
+                          <Text className={`${blockName}-tag`} onClick={() => handleClickHistory(item.text)}>{item.text}</Text>
                           <Text></Text>
                         </Fragment>
                       ))
@@ -83,7 +89,7 @@ const SmartBox: React.FC<SmartBoxProps> = ({
                   <View className={`${blockName}-panel-content ${blockName}__row-3`}>
                     {
                       hotWordsVisible && hotWords.map(item => (
-                        <View className={`${blockName}-tag`} onClick={handleClickHot}>
+                        <View className={`${blockName}-tag`} onClick={() => handleClickHot(item.text)}>
                           <Text>{item.text}</Text>
                           { item.icon &&  <Image className={`${blockName}-tag-icon`} src={item.icon} />}
                         </View>
