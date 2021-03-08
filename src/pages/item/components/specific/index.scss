@@ -1,0 +1,140 @@
+$preCls: "koany-product-specific";
+.#{$preCls} {
+  background: none;
+  overflow: hidden;
+  .radius-top {
+    overflow: hidden;
+    border-top-left-radius: 24px;
+    border-top-right-radius: 24px;
+  }
+  &__header {
+    position: relative;
+
+    &-text {
+      position: relative;
+      padding: 0 .8em;
+      font-size: 28px;
+      color: #666;
+      background: #fff;
+    }
+  }
+  &__image {
+    display: block;
+  }
+  &__item {
+    margin: 0;
+    &:not(:last-child) {
+      border-bottom: none;
+    }
+  }
+  &__title {
+    height: 102px;
+    line-height: 102px;
+    background: #FFF;
+  }
+  &__section-intro {
+    background: #fff;
+    &-title {
+      position: relative;
+      margin-left: 36px;
+      display: flex;
+      align-items: center;
+      font-size: 26px;
+      color: #000;
+      padding: 20px 0 10px;
+      &.intro {
+        margin-top: 13px;
+      }
+
+    }
+  }
+  &__content {
+    padding-top: 20px;
+    .#{$preCls}__p {
+      display: block;
+      margin: 20px 0;
+      padding: 0 20px;
+      font-size: 12PX;
+      word-break: break-all;
+    }
+  }
+  &__p {
+
+  }
+  .row_gray {
+    background: #f7f7f7;
+    height: 10px;
+  }
+  &__section-specs {
+    background: #fff;
+    &-content {
+      padding: 0 20px 20px;
+    }
+  }
+  &__load-tips {
+    padding: 80px 0;
+    text-align: center;
+  }
+  &__pack-list {
+
+  }
+  &__spec-table {
+    font-size: 12PX;
+    border-top: 1px solid #dfdfdf;
+    border-right: 1px solid #dfdfdf;
+    border-left: 1px solid #dfdfdf;
+    color: #666;
+    &-tr {
+      position: relative;
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid #dfdfdf;
+      &.#{$preCls}__spec-table-line {
+        &::after {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 30%;
+          bottom: 0;
+          width: 0;
+          border-right: 1px solid #dfdfdf;
+        }
+      }
+    }
+    &-td {
+      box-sizing: border-box;
+      padding: 16px;
+      padding-left: 24px;
+      line-height: 1.3;
+      text-align: left;
+      word-break: break-all;
+      &.#{$preCls}__spec-table-title {
+        width: 30%;
+        color: #000;
+      }
+      &.#{$preCls}__spec-table-label {
+        width: 30%;
+        border-right: 1px solid #dfdfdf;
+      }
+      &.#{$preCls}__spec-table-content {
+        flex: 1;
+      }
+    }
+  }
+  &__section-service {
+    background: #fff;
+    &-content {
+      padding: 0 20px 20px;
+    }
+    .#{$preCls}__p {
+      display: block;
+      padding: 0;
+      font-size: 12PX;
+      color: #999;
+    }
+    .#{$preCls}__header {
+      padding-top: 30px;
+      padding-bottom: 20px;
+    }
+  }
+}

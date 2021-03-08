@@ -1,0 +1,44 @@
+$preCls: "koany-order-tabs";
+
+.#{$preCls} {
+  position: relative;
+  height: 44PX;
+  &__inner {
+    position: relative;
+    background-color: #fff;
+  }
+  &__nav {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    height: 44PX;
+    display: flex;
+    white-space: nowrap;
+    &-item {
+      flex: 1;
+      text-align: center;
+      display: inline-block;
+      &-cur {
+
+        .#{$preCls}__nav-item-link {
+          color: #f2270c;
+          &::before {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: #f2270c;
+          }
+        }
+      }
+      &-link {
+        position: relative;
+        display: inline-block;
+        font-size: 14PX;
+        line-height: 44PX;
+        color: #262626;
+      }
+    }
+  }
+}

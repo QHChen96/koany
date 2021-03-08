@@ -1,0 +1,92 @@
+$preCls: "koany-order-detail-summary";
+
+.#{$preCls} {
+  &__container {
+    overflow: hidden;
+    margin-top: 10PX;
+    background-color: #fff;
+    border-radius: 10PX;
+  }
+  &__order-summary {
+    padding: 12PX 10PX;
+    &-line {
+      display: flex;
+      padding-top: 3PX;
+      font-size: 14PX;
+      line-height: 21PX;
+      position: relative;
+    }
+    &-title {
+      min-width: 70PX;
+      color: #999;
+    }
+    &-content {
+      width: 100%;
+      flex: 1;
+      color: #151515;
+    }
+  }
+  &__total {
+    background: #fff;
+    padding: 12PX 10PX;
+    overflow: hidden;
+    position: relative;
+    border-radius: 0 0 6PX 6PX;
+    font-size: 14PX;
+
+    &-item {
+      display: flex;
+      line-height: 22PX;
+      color: #333;
+      font-weight: 400;
+      position: relative;
+    }
+    &-price {
+      margin-left: auto;
+      color: #f2270c;
+      font-weight: 400;
+    }
+  }
+  &__total-bottom {
+    text-align: right;
+    margin-top: 8PX;
+    font-size: 16PX;
+    line-height: 24PX;
+    color: #333;
+    font-weight: 700;
+  }
+  &__copy {
+    position: relative;
+    margin-left: 4PX;
+    display: inline-block;
+    border: 1PX solid #ccc;
+    font-size: 10PX;
+    line-height: 16PX;
+    height: 16PX;
+    padding: 0 6PX;
+    color: #999;
+    border-radius: 7PX;
+  }
+  &__inline-total {
+    font-weight: 700;
+    color: #333;
+  }
+  &__inline-price {
+    font-weight: 400;
+    color: #ff4142;
+  }
+  &__more {
+    text-align: center;
+    &-text {
+      display: inline-block;
+      position: relative;
+      font-size: 12PX;
+      color: #666;
+      line-height: 18PX;
+      padding: 0 3PX 10PX 0;
+    }
+    &-icon {
+      color: #666;
+    }
+  }
+}

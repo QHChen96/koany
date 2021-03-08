@@ -15,6 +15,7 @@ export interface BarFilter {
 }
 export interface FilterBarProps {
   extraTabs?: FilterBarExtraTab[];
+  onMoreFilter?: () => void;
 }
 export interface FilterDropdown {
   visible: boolean;
@@ -23,7 +24,8 @@ export interface FilterDropdown {
 }
 const FilterBar: React.FC<FilterBarProps> = ({
   extraTabs=[],
-  children
+  children,
+  onMoreFilter
 }) => {
 
   const [activeTab, setActiveTab] = useState(false);
@@ -53,7 +55,9 @@ const FilterBar: React.FC<FilterBarProps> = ({
   const handleConfirm = () => {}
   const handleSelectedSort = () => {}
   const handleOutsideSort = () => {}
-  const handleMoreFilter = () => {}
+  const handleMoreFilter = () => {
+    onMoreFilter && onMoreFilter();
+  }
   const handleToggleFilter = () => {
     if (!dropdown.visible) {
       setDropdown({

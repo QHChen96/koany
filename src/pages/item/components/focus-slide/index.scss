@@ -1,0 +1,44 @@
+$preCls: "koany-focus-slide";
+
+.#{$preCls} {
+
+  &__cover {
+    position: relative;
+    width: 750px;
+    height: 750px;
+    margin-top: 90px;
+    background: #f7f7f7;
+    &.no-gutter {
+      margin-top: 0;
+    }
+  }
+  &__image, &__slide {
+    width: 100%;
+    height: 100%;
+  }
+  &__slide-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  &__number {
+    position: absolute;
+    display: flex;
+    align-items: baseline;
+    bottom: 36px;
+    right: 0;
+    height: 40px;
+    padding: 0 29px 0 34px;
+    text-align: center;
+    font-size: 18px;
+    z-index: 11;
+    overflow: hidden;
+    white-space: nowrap;
+    background: rgba(0,0,0,.2);
+    color: #fff;
+    border-radius: 100px 0 0 100px;
+  }
+  &__number-cur {
+    font-size: 28px;
+  }
+}

@@ -11,6 +11,7 @@ import './index.scss';
 
 import useNavInfo from '../../hooks/useNavInfo';
 import Taro from '@tarojs/taro';
+import Icon from '../icon';
 
 const blockName = 'koany-nav-bar';
 
@@ -70,26 +71,26 @@ type CapsuleType = 'full' | 'miniReturn' | 'menu' | 'miniMenu' | 'return' | 'non
 const menus: NavBarMenu[] = [
   {
     menuName: '首页',
-    menuIcon: '',
+    menuIcon: 'home',
     menuType: 'index',
     url: ''
   },
   {
     menuName: '个人中心',
-    menuIcon: '',
+    menuIcon: 'people',
     menuType: 'my',
     url: ''
   },
   {
     menuName: '我的收藏',
-    menuIcon: '',
+    menuIcon: 'favor',
     menuType: 'fav',
     url: ''
   }
 ];
 
-const calculateRGBA = (backgroundRGB: string, opacity: number | string = 1) => {
-  return "rgba(" + (backgroundRGB || "255, 255, 255") + ", " + (opacity || "1.0") + ")";
+const calculateRGBA = (backgroundRGB: string = '255, 255, 255', opacity: number | string = 1) => {
+  return `rgba(${backgroundRGB}, ${opacity})`;
 }
 
 const NavBar: React.FC<NavBarProps> = ({
@@ -333,7 +334,7 @@ const NavBar: React.FC<NavBarProps> = ({
               {
                 menus.map(menu => (
                   <View onClick={handleClickMenuItem} className={`${blockName}__menu-item`} key={menu.menuName}>
-                    <Image className={`${blockName}__menu-item-icon`} src={menu.menuIcon} />
+                    <Icon size={16} className={`${blockName}__menu-item-icon`} type={menu.menuIcon} />
                     <Text className={`${blockName}__menu-item-name`}>{menu.menuName}</Text>
                   </View>
                 ))

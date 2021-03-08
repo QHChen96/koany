@@ -1,0 +1,126 @@
+$preCls: "koany-search-goods-list";
+.#{$preCls} {
+
+  .bg-placeholder {
+    background-image: url(https://img11.360buyimg.com/jdphoto/s100x100_jfs/t23008/197/27787722/917/d1efc2bd/5b233483N97ab20b3.png);
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: 40%;
+  }
+  &.#{$preCls}__cols-1 {
+    .#{$preCls}__item {
+      display: flex;
+      align-items: center;
+      padding: 6PX 12PX;
+      &-title {
+        margin-top: 1px;
+      }
+      &-info {
+        margin-left: 10PX;
+        flex: 1;
+        width: 0;
+        min-height: 132PX;
+      }
+      &-cover {
+        width: 132PX;
+        padding-top: 132PX;
+        border-radius: 8PX;
+      }
+    }
+  }
+  &.#{$preCls}__cols-2 {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 8PX;
+    &::after {
+      content: "";
+      display: block;
+      flex: 1;
+      flex-basis: 48%;
+      max-width: 49.4%;
+      height: 0;
+    }
+    .#{$preCls}__item {
+      flex: 1;
+      flex-basis: 48%;
+      max-width: 49.4%;
+      margin-bottom: 4PX;
+      border-radius: 8PX;
+      &:nth-child(odd) {
+        margin-right: 4PX;
+      }
+      &-flex {
+        min-height: 41PX;
+      }
+      &-info {
+        padding: 5PX 8PX;
+      }
+      &-cover {
+        width: 100%;
+        padding-top: 100%;
+      }
+    }
+  }
+  &__item {
+    background-color: #fff;
+    overflow: hidden;
+    position: relative;
+    &-flex {
+      min-height: 50PX;
+    }
+    &-title {
+      line-height: 20PX;
+      max-height: 20PX;
+      font-size: 14PX;
+      color: #1a1a1a;
+      &.line-2 {
+        max-height: 40PX;
+      }
+    }
+    &-img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+    &-cover {
+      position: relative;
+      height: 0;
+      overflow: hidden;
+      &-tips {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        z-index: 1;
+        width: 100%;
+        height: 20PX;
+        line-height: 20PX;
+        font-size: 12PX;
+        text-align: center;
+        color: #fff;
+        background-color: rgba(0,0,0,.7);
+      }
+    }
+    &-attrs {
+      overflow: hidden;
+      height: 16PX;
+      margin-top: 5PX;
+      .#{$preCls}__word:not(:last-child) {
+        margin-right: 6PX;
+      }
+    }
+    &-price-area {
+      margin-top: 18PX;
+      display: flex;
+      .#{$preCls}__item-price {
+        font-size: 12PX;
+        line-height: 18PX;
+        margin-right: 6PX;
+        .int {
+          font-size: 18PX;
+        }
+      }
+    }
+  }
+}

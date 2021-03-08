@@ -1,0 +1,108 @@
+$preCls: "koany-order-detail-top-banner";
+
+.#{$preCls} {
+  &__state {
+    position: relative;
+    background-image: linear-gradient(270deg,#ff4142,#ff4b2b);
+    color: #fff;
+    padding: 64PX 10PX 30PX;
+    font-size: 12PX;
+    text-align: center;
+    overflow: hidden;
+    &-name {
+      position: relative;
+      font-size: 20PX;
+      line-height: 20PX;
+      font-weight: 700;
+      z-index: 1;
+    }
+    &-tips {
+
+      &-item {
+        position: relative;
+        margin-top: 6PX;
+        display: inline-block;
+        z-index: 1;
+        text-align: left;
+        &:not(:first-child) {
+          margin-left: 20PX;
+        }
+      }
+    }
+    &-btn {
+    margin-top: 15PX;
+    display: inline-block;
+    background: #fff;
+    box-shadow: 0 8PX 16PX 0 rgba(231,0,28,.14),inset 0 -4PX 6PX 0 rgba(255,198,198,.77);
+    border-radius: 20PX;
+    position: relative;
+    z-index: 1;
+    font-size: 14PX;
+    color: #f2270c;
+    padding: 10PX 38PX;
+    line-height: 14PX;
+    }
+  }
+  &__prompt-bar {
+    display: flex;
+    background: #fff8f0;
+    font-size: 12PX;
+    color: #ff911b;
+    line-height: 18PX;
+    padding: 7PX 0 7PX 10PX;
+    align-items: center;
+    &-tip {
+      flex: 1;
+    }
+    &-close {
+      margin-right: 16px;
+    }
+  }
+  &__prompt-bar+&__wuliu {
+    margin-top: 0;
+  }
+  &__wuliu {
+    position: relative;
+    margin-top: -10PX;
+    background-color: #fff;
+    border-radius: 10PX;
+    &-cont {
+      padding: 11PX 10PX 12PX;
+      display: flex;
+      align-items: center;
+      position: relative;
+      &-icon {
+        display: inline-block;
+        color: #999;
+        margin-right: 8px;
+      }
+      &-text {
+        flex: 1;
+        position: relative;
+      }
+    }
+    &-text {
+      font-size: 14PX;
+      line-height: 21PX;
+      color: #333;
+    }
+    &-tip {
+      font-size: 12PX;
+      line-height: 18PX;
+      color: #999;
+    }
+    &-action {
+      font-size: 12PX;
+      color: #999;
+      line-height: 36PX;
+      margin-left: 10PX;
+    }
+    &-edit {
+      font-size: 12PX;
+      color: #999;
+      line-height: 36PX;
+      width: 30PX;
+      margin-left: 10PX;
+    }
+  }
+}

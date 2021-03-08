@@ -1,0 +1,33 @@
+$preCls: "koany-order-search-bar";
+
+.#{$preCls} {
+  height: 50PX;
+  position: relative;
+  background: #FFFFFF;
+  font-size: 14PX;
+  &__container {
+    position: relative;
+    display: flex;
+    box-sizing: border-box;
+    padding: 10PX 24px;
+    background: #fff;
+  }
+  &__readonly {
+    flex: 1;
+    position: relative;
+    height: 30PX;
+    &-input {
+      height: 30PX;
+      border-radius: 15PX;
+      border: 1px solid #eee;
+      line-height: 28PX;
+      color: #999;
+      display: flex;
+      align-items: center;
+      padding-left: 16px;
+      &-text {
+        padding-left: 8px;
+      }
+    }
+  }
+}

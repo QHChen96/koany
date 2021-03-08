@@ -20,8 +20,8 @@ const Icon: React.FC<IconProps> = ({
     onClick && onClick();
   }
   return (
-    <View 
-      className={`inline-block iconfont icon-${type} normal-case lh-1 ${className}`} 
+    <View
+      className={`inline-block iconfont icon-${type} normal-case lh-1 ${className}`}
       style={`font-size: ${size}px; ${color ? `color:${color}` : ''}`}
       onClick={handleClick}>
     </View>

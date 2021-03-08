@@ -1,0 +1,116 @@
+$preCls: "koany-product-bottom-bar";
+.#{$preCls} {
+  &__tips {
+    position: fixed;
+    z-index: 20;
+    left: 0;
+    right: 0;
+    bottom: 49PX;
+    padding: 10PX 12PX;
+    font-size: 12PX;
+    line-height: 16PX;
+    text-align: center;
+    background: #fbf9da;
+    color: #de6a1c;
+    margin-bottom: calc(env(safe-area-inset-bottom));
+  }
+  &__option {
+    position: fixed;
+    z-index: 20;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #fff;
+    box-shadow: 0 -1PX 2PX 0 rgba(0,0,0,.07);
+    padding-bottom: calc(env(safe-area-inset-bottom));
+    &-box {
+      display: flex;
+      width: 100%;
+      height: 49PX;
+      text-align: center;
+      color: #fff;
+    }
+    &-item {
+      position: relative;
+      width: 50PX;
+      background: #fff;
+      display: block;
+      &-icon {
+        color: #262626;
+        margin: 7PX auto 4PX;
+        width: 20PX;
+        height: 20PX;
+        display: block;
+      }
+      &-text {
+        display: block;
+        line-height: 1.1;
+        font-size: 18px;
+        color: #260e0e;
+      }
+      &-badge {
+        position: absolute;
+        top: 4PX;
+        left: 28PX;
+        height: 12PX;
+        line-height: 10PX;
+        min-width: 12PX;
+        max-width: 22.5PX;
+        box-sizing: border-box;
+        padding: 0 3PX;
+        border: 1PX solid #f2270c;
+        color: #f2270c;
+        font-size: 9PX;
+        background: #fff;
+        border-radius: 6PX;
+        &-ani {
+          position: absolute;
+          top: -12PX;
+          left: 30PX;
+          font-size: 16PX;
+          font-weight: 700;
+          color: #e93b3d;
+          opacity: 0;
+        }
+      }
+    }
+
+  }
+  &__btn {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 13PX;
+    color: #fff;
+    height: 38PX;
+    line-height: 1;
+    border-radius: 21PX;
+    font-weight: 700;
+    margin: 6PX 6PX 6PX 0;
+    padding: 0 4PX;
+  }
+  &__cart {
+
+  }
+  &__add-cart {
+    position: relative;
+    background: linear-gradient(135deg,#ffba0d,#ffc30d 69%,#ffcf0d);
+    text-align: center;
+    &.disabled {
+      color: #fff;
+      background: #ffdcc6;
+    }
+  }
+  &__just-buy {
+    position: relative;
+    background: linear-gradient(135deg,#f2140c,#f2270c 70%,#f24d0c);
+    text-align: center;
+    margin-right: 12PX;
+    &.disabled {
+      color: #fff;
+      background: #f8c4c4;
+    }
+  }
+}
