@@ -1,0 +1,107 @@
+$preCls: "koany-dialog";
+
+.#{$preCls} {
+  color: #333;
+  &__mask {
+    z-index: 1009;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,.3);
+  }
+  &__title {
+    position: relative;
+    font-size: 16PX;
+    text-align: center;
+    font-weight: 700;
+    margin-top: 10PX;
+    padding: 0 20PX;
+    &.#{$preCls}__show-close {
+      padding-right: 10PX;
+    }
+    &-close {
+      width: 14PX;
+      height: 14PX;
+      position: absolute;
+      right: 15PX;
+      top: 50%;
+      transform: translateY(-50%);
+      &::after, &::before {
+        content: "";
+        display: block;
+        height: 2PX;
+        background: #ccc;
+        width: 100%;
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%) rotate(45deg);
+      }
+      &::after {
+        transform: translateY(-50%) rotate(-45deg);
+      }
+    }
+  }
+  &__content-wrapper {
+    box-sizing: border-box;
+    width: 295PX;
+    position: fixed;
+    background: #fff;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 1010;
+    box-shadow: 0 1px 10px 0 rgba(0,0,0,.3);
+    border-radius: 10px;
+    &.#{$preCls}__has-button {
+      padding-bottom: 15PX;
+    }
+  }
+  &__content {
+    margin: 12PX 0;
+    box-sizing: border-box;
+    word-wrap: break-word;
+    word-break: break-all;
+    overflow: hidden;
+    overflow-y: auto;
+    max-height: 220PX;
+    -webkit-overflow-scrolling: touch;
+    text-align: center;
+    font-size: 14PX;
+    padding: 0 20PX;
+    &--notice {
+      margin: 16PX 0 12PX;
+    }
+  }
+  &__buttons {
+    display: flex;
+    line-height: 28PX;
+    min-height: 28PX;
+    padding: 0 15PX;
+
+  }
+  &__button {
+    flex: 1;
+    text-align: center;
+    &+& {
+      margin-left: 10PX;
+    }
+    &-cancel {
+      background: #fff;
+      border: 1px solid #ccc;
+      box-shadow: 0 3PX 6PX 0 rgba(0,0,0,.05);
+      border-radius: 20PX;
+    }
+    &-confirm {
+      background-color: #e93b3d;
+      box-shadow: 0 3PX 6PX 0 rgba(255,65,66,.2);
+      border-radius: 20PX;
+      color: #fff;
+      &:only-child {
+        margin: 0 12PX;
+      }
+    }
+  }
+}

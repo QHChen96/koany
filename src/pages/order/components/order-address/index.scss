@@ -1,0 +1,84 @@
+$preCls: "koany-order-address";
+
+.#{$preCls} {
+  padding-bottom: 13PX;
+  background: #fff url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIYAAAAKCAYAAABxCyYyAAAABHNCSVQICAgIfAhkiAAAAWdJREFUWIXtlrFPwkAUxr93BVI0YWcg/h0dCSZskJB0lqk6MTCQ6MTioIxMbsDeBRcDVnFndXNzxDiaGto+B6KJiBJ6l9QLfGPv+uXll5fLj7AmXDx0gOhq3b1/GRINurvtqqhqDX2HI9aSgxDUuKiYG3Ggvw65VLLAmIA5IzdaEqE+3Xt1FU2n13MrDMMJQz8OROhfVrP1Tf8Tvx1wuZxHBFfTpZjioHCiounshvNhGLiaLsV0L2fG4rByMdi2M5gHLsB5udESyQxpo0a9ni9b1H7kzNz3XQa040CEWdo0a+0ixeKQWvn15bULsCU1WTIJkDJsGo2eVZS9Pb13AWjHgYgCJsM+L1NsDj9ejIVssiM3WkIh0aTx+EFFVWvoO8x6ciBCs1NJS3H4Jp9ay6agAXnekYoqnWUThEGnmpXm8PViaC+bhcKxiibdZXM/ZyrhIICdbH5mm2VzOQv53MkmgO2WzeV8AK3CpA0zS5W2AAAAAElFTkSuQmCC) -7px bottom repeat-x;
+  background-size: auto 5PX;
+  border-radius: 10PX;
+  &__addr {
+    position: relative;
+    z-index: 101;
+    padding-top: 10PX;
+  }
+  &__container {
+    position: relative;
+    box-sizing: border-box;
+    padding: 0 10PX;
+  }
+  &__user {
+    padding-right: 20PX;
+    line-height: 22PX;
+    font-size: 16PX;
+    vertical-align: middle;
+    color: #333;
+    font-weight: 700;
+    &-name {}
+    &-phone {
+      margin-left: 15PX;
+    }
+  }
+  &__full {
+    padding-right: 20PX;
+    margin-top: 4PX;
+    line-height: 20PX;
+    vertical-align: middle;
+    color: #333;
+    font-size: 14PX;
+    &-address {}
+  }
+  &__more {
+    position: absolute;
+    color: #999;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  &__label {
+    position: relative;
+    top: -1PX;
+    display: inline-block;
+    margin-right: 5PX;
+    text-align: center;
+    vertical-align: middle;
+    max-width: 9em;
+    line-height: 14PX;
+    font-size: 10PX;
+    padding: 0 4PX;
+    border-radius: 2PX;
+    color: #fff;
+    &-red {
+      background: #e93b3d;
+    }
+  }
+  &__empty {
+    display: flex;
+    align-items: center;
+    font-size: 14PX;
+    color: #333;
+    &-icon {
+      color: #333;
+      margin-right: 10PX;
+    }
+    &-text {
+      flex: 1;
+      position: relative;
+    }
+  }
+  &__wx-import {
+    position: relative;
+    display: flex;
+    align-items: center;
+    align-self: stretch;
+    height: 35PX;
+  }
+}

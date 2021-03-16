@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, Image, Map, Text, Input } from '@tarojs/components';
+import { View, Text } from '@tarojs/components';
 import './index.scss';
 import { Icon } from "@/components";
 
@@ -37,6 +37,10 @@ const TopBanner = ({
     content: ''
   }
 
+  const handleToPay = () => {
+
+  }
+
   return (
     <View className={`${blockName}`}>
       <View className={`${blockName}__state`} style={{ paddingTop: `${navHeight}px`}}>
@@ -54,7 +58,7 @@ const TopBanner = ({
             payInfo.payTime && <View className={`${blockName}__state-tips-item`}>{payInfo.payTime}</View>
           }
         </View>
-        { stateInfo.actionName && <View className={`${blockName}__state-btn`}>{stateInfo.actionName}</View> }
+        { stateInfo.actionName && <View className={`${blockName}__state-btn`} onClick={handleToPay}>{stateInfo.actionName}</View> }
       </View>
       {
         promptInfo.content && (

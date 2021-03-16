@@ -1,0 +1,33 @@
+$preCls: "koany-order-detail-delete-state";
+
+.#{$preCls} {
+  padding: 40PX 0 35PX;
+  text-align: center;
+  &__placeholder {
+    height: 90PX;
+  }
+  &__desc {
+    margin-top: 10PX;
+    &-main {
+      font-size: 14PX;
+      color: #333;
+      line-height: 21PX;
+    }
+    &-small {
+      font-size: 12PX;
+      color: #999;
+      line-height: 18PX;
+    }
+  }
+  &__order-all {
+    margin-top: 10PX;
+    display: inline-block;
+    padding: 4PX 15PX;
+    background: #fff;
+    font-size: 14PX;
+    color: #333;
+    line-height: 21PX;
+    border: 1PX solid #ccc;
+    border-radius: 15PX;
+  }
+}

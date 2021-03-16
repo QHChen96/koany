@@ -1,0 +1,59 @@
+$preCls: "koany-tag-input";
+
+.#{$preCls} {
+  background: #fff;
+  position: relative;
+  color: #333;
+  font-size: 14PX;
+  display: flex;
+  overflow: hidden;
+  height: 30PX;
+  line-height: 30PX;
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    border: 1px solid #4b9bf8;
+    border-radius: 50PX;
+  }
+  &--edit {
+    &::after {
+      border: 1px solid #ccc;
+      border-radius: 50PX;
+    }
+  }
+  &--disable {
+    &::after {
+      border: 1px solid #ccc;
+      border-radius: 50PX;
+    }
+    .#{$preCls}__input-status {
+      background-color: #ccc;
+    }
+  }
+  &__input {
+    max-width: 207PX;
+    padding: 0 15PX;
+    height: 30PX!important;
+    line-height: 30PX!important;
+    color: #999;
+    display: inline-block;
+    position: relative;
+    z-index: 100;
+    &-placeholder {
+      color: #999;
+    }
+    &-status {
+      background: #4b9bf8;
+      border-radius: 0 50PX 50PX 0;
+      color: #fff;
+      width: 68PX;
+      text-align: center;
+      position: relative;
+      z-index: 100;
+    }
+  }
+}

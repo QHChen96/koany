@@ -14,30 +14,30 @@ const OrderSummary = ({
   const [open, setIsOpen] = useState(false);
 
   const order = {
-    totalPriceTitle: '实付金额：',
-    totalPrice: "￥100",
+    totalPriceTitle: '实付款：',
+    totalPrice: "￥10000000",
     totals: [
       {
         title: '商品总额',
-        money: "￥100"
+        money: "+￥100"
       },
       {
         title: '运费',
-        money: "￥0"
+        money: "+￥0"
       },
     ]
   }
   const summaryList = [
     {
-      title: '订单编号',
-      content: '10000000000'
+      title: '订单编号:',
+      content: '100000000000'
     },
     {
-      title: '下单时间',
+      title: '下单时间:',
       content: '2021-03-08 22:00:00'
     },
     {
-      title: '支付时间',
+      title: '支付时间:',
       content: '2021-03-08 22:00:00'
     }
   ];
@@ -72,7 +72,7 @@ const OrderSummary = ({
               }
               <View className={`${blockName}__total-bottom`}>
                 {order.totalPriceTitle}
-                <Text className={`${blockName}__total-price`}>{order.totalPrice}</Text>
+                <Text className={`${blockName}__total-bottom-price`}>{order.totalPrice}</Text>
               </View>
             </View>
             <View className={`${blockName}__more`} onClick={handleChangeOpen}>

@@ -1,0 +1,32 @@
+$preCls: "koany-order-confirm";
+
+.#{$preCls} {
+  &__summary {
+    margin-top: 10PX;
+    border-radius: 10PX;
+    background: #FFFFFF;
+    padding: 0 10PX;
+  }
+  &__container {
+    background: #f7f7f7;
+    padding-bottom: calc(60PX + env(safe-area-inset-bottom));
+  }
+  &__buy-notice {
+    margin-top: 10PX;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    background: #fff;
+    height: 44PX;
+    padding: 0 10PX;
+    position: relative;
+    border-radius: 10PX;
+    font-size: 14PX;
+    .checkbox {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      right: 10PX;
+    }
+  }
+}

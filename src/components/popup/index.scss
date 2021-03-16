@@ -1,0 +1,71 @@
+$preCls: "koany-popup";
+
+.#{$preCls} {
+  &__mask {
+    z-index: 900;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,.3);
+  }
+  &__wrap {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 900;
+    color: #333;
+    padding: 16PX 10PX 0;
+    background: #fff;
+    border-radius: 10PX 10PX 0 0;
+    box-sizing: border-box;
+  }
+  &__title {
+    font-size: 16PX;
+    text-align: center;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+  &__text {
+    flex: 1;
+    font-weight: 700;
+    position: absolute;
+    left: 0;
+    right: 0;
+  }
+  &__close {
+    width: 12PX;
+    height: 12PX;
+    position: relative;
+    z-index: 10;
+    &::after, &::before {
+      content: "";
+      display: block;
+      height: 2PX;
+      background: #ccc;
+      width: 100%;
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%) rotate(45deg);
+    }
+    &::after {
+      transform: translateY(-50%) rotate(-45deg);
+    }
+  }
+  &__rule {
+    margin-right: 15PX;
+    font-size: 12PX;
+    color: #999;
+    position: relative;
+    z-index: 10;
+  }
+  &__content {
+    position: relative;
+    z-index: 901;
+  }
+}

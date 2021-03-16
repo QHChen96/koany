@@ -1,0 +1,41 @@
+$preCls: "koany-order-pay-expense";
+
+.#{$preCls} {
+  &__item {
+    display: flex;
+    min-height: 39PX;
+    align-items: center;
+    align-content: center;
+    &-name {
+      flex: 1;
+      font-size: 14PX;
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+    &-content {
+      text-align: right;
+      font-size: 12PX;
+      &-price {
+        padding-right: 10PX;
+      }
+    }
+  }
+  &__sum {
+    margin-right: 10PX;
+
+    border-top: 1px solid #f0f0f0;
+    min-height: 43PX;
+    .#{$preCls}__item-content {
+      font-size: 14PX;
+    }
+  }
+  &__price {
+    color: #e93b3d;
+    align-items: center;
+    align-content: center;
+    &__total-price {
+      display: inline-block;
+    }
+  }
+}

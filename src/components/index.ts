@@ -8,3 +8,7 @@ export { default as Horn } from './horn';
 export { default as SliderView } from './slider-view';
 export { default as Back2Top } from './back-2-top';
 export { default as PullRefresh } from './pull-refresh';
+export { default as Dialog } from './dialog';
+export { default as AddressLayer } from './address-layer';
+export { default as PayConfirmButton } from './pay-confirm-button';
+export { default as Popup } from './popup';

@@ -45,3 +45,17 @@
 .nav-height {
   height: 44PX;
 }
+.checkbox {
+  width: 20PX;
+  height: 20PX;
+  background: url(https://img12.360buyimg.com/img/s80x80_jfs/t1/110428/27/6423/2457/5e4cf502E0b9a0fb7/73b674e027daf4d9.png) 50% no-repeat;
+  background-size: 20PX 20PX;
+  background-position: 0;
+  display: inline-block;
+  &--disable {
+    background-image: url(https://img12.360buyimg.com/img/s80x80_jfs/t1/103792/21/12634/2892/5e4cf50fEa91411a5/32650060ac445365.png);
+  }
+  &--checked {
+    background-image: url(https://img11.360buyimg.com/jdphoto/s30x30_jfs/t22111/144/690047934/318/2fed6bc9/5b160ff5Nbab090ab.png);
+  }
+}

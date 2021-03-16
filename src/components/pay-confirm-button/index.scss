@@ -1,0 +1,40 @@
+$preCls: "koany-pay-confirm-button";
+
+.#{$preCls} {
+  &--fixed {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    height: 70PX;
+    background-color: #fff;
+    padding: 0 10PX calc(env(safe-area-inset-bottom));
+    .#{$preCls}__content {
+      margin-top: 15px;
+      display: inline-block;
+      width: 100%;
+    }
+  }
+  &__content {
+    background-color: #e93b3d;
+    box-shadow: 0 3PX 6PX 0 rgba(255,65,66,.2);
+    border-radius: 20PX;
+    text-align: center;
+    line-height: 40PX;
+    font-size: 16PX;
+    color: #fff;
+    &-default {
+      background: #fff;
+      border: 1px solid #ccc;
+      box-shadow: 0 3PX 6PX 0 rgba(0,0,0,.05);
+      border-radius: 20PX;
+      color: #333;
+    }
+    &-disable {
+      box-shadow: none;
+      color: #fff;
+      background: #ccc;
+    }
+  }
+}

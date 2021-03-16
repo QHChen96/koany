@@ -1,0 +1,62 @@
+$preCls: "koany-order-address-dialog";
+
+.#{$preCls} {
+  &__import-addr {
+    &-content {
+      text-align: left;
+    }
+    &-item {
+      padding: 11PX 10PX;
+      background: #f7f7f7;
+      font-size: 14PX;
+      border-radius: 4PX;
+      &+& {
+        margin-top: 2PX;
+      }
+      &-info {
+        display: flex;
+      }
+      &-key {
+        width: 62PX;
+        color: #999;
+        white-space: nowrap;
+      }
+      &-mobile-prefix {
+        display: flex;
+        align-items: center;
+      }
+      &-value {
+        color: #333;
+        flex: 1;
+      }
+    }
+  }
+  &__error-tips {
+    padding-left: 62PX;
+    margin-top: 2PX;
+    color: #e93b3d;
+    font-size: 12PX;
+    line-height: 1em;
+    display: flex;
+    align-items: center;
+    align-content: center;
+  }
+  &__pay-arrow {
+    position: relative;
+    &::after {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      right: 5PX;
+      content: "";
+      display: inline-block;
+      box-sizing: border-box;
+      width: 8PX;
+      height: 8PX;
+      border-top: 2PX solid #333;
+      border-right: 2PX solid #333;
+      transform-origin: top right;
+      transform: rotate(45deg);
+    }
+  }
+}
