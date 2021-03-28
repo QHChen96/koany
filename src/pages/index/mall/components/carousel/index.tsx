@@ -37,12 +37,12 @@ const Carousel: React.FC<CarouselProps> = ({
   const handleSwiperChange = (event: any) => { setSwiperCurrent(event.detail.current); }
 
   return (
-    <View className="relative my-0 mx-auto box-shadow-1" style={{ width: `702rpx`, height: `220rpx`, borderRadius: `24rpx` }}>
-      <Swiper className="relative w-full h-full overflow-hidden bg-black bg-opacity-5" style={{ borderRadius: `24rpx` }} circular autoplay={autoplay} indicatorDots={false} interval={5000} onChange={handleSwiperChange}>
+    <View className="relative my-0 mx-auto box-shadow-1 overflow-hidden" style={{ width: `702rpx`, height: `220rpx`, borderRadius: `24rpx` }}>
+      <Swiper className="relative w-full h-full overflow-hidden" style={{ borderRadius: `24rpx`, zIndex: 1 }} circular autoplay={autoplay} indicatorDots={false} interval={5000} onChange={handleSwiperChange}>
         {
           carousels.map(item => (
-            <SwiperItem className="w-full h-full overflow-hidden bg-black bg-opacity-5" onClick={handleItem}>
-              <Image className="w-full h-full overflow-hidden" src={item.imgUrl} mode="aspectFill"/>
+            <SwiperItem className="w-full h-full overflow-hidden bg-black bg-opacity-5" style={{ borderRadius: `24rpx` }} onClick={handleItem}>
+              <Image className="w-full h-full overflow-hidden" src={item.imgUrl} style={{ borderRadius: `24rpx` }} mode="aspectFill"/>
             </SwiperItem>
           ))
         }

@@ -1,7 +1,7 @@
-import React, { useState } from "react";
-import { View, Image, Map, Text, Input } from '@tarojs/components';
+import React from "react";
+import { View } from '@tarojs/components';
 import './index.scss';
-import { Icon } from "@/components";
+import { navigateTo } from "@/common";
 
 const blockName = `koany-order-detail-bottom`;
 
@@ -15,13 +15,22 @@ const OrderBottom = ({
   const handles = [
     {
       name: '再次购买',
+      type: 're-buy',
       btnStyle: 'red'
     },
     {
       name: '退款/售后',
       btnStyle: 'white'
     }
-  ]
+  ];
+
+  const handleAction = (btn: any) => {
+    if (btn.type === 're-buy') {
+      navigateTo({
+        url: '/pages/order/confirm/index'
+      })
+    }
+  }
   return (
     <View className={`${blockName}`}>
       <View className={`${blockName}__placeholder`}></View>
@@ -29,7 +38,7 @@ const OrderBottom = ({
         <View className={`${blockName}__btns`}>
           {
             handles.map(item => (
-              <View className={`${blockName}__btn ${blockName}__btn-${item.btnStyle}`}>
+              <View className={`${blockName}__btn ${blockName}__btn-${item.btnStyle}`} onClick={() => handleAction(item)}>
                 {item.name}
               </View>
             ))

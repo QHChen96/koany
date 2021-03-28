@@ -19,6 +19,7 @@ export interface AddressEntity {
 export default (): React.ReactNode => {
 
   const [mobilePrefix, setMobilePrefix] = useState('86');
+  const [showAddressDialog, setShowAddressDialog] = useState(false);
   const [showAreaCodePopup, setShowAreaCodePopup] = useState(false);
   const [type, setType] = useState('add');
   const addressInfo = {
@@ -40,13 +41,106 @@ export default (): React.ReactNode => {
     {
       code: '86',
       name: '中国大陆'
+    },
+    {
+      code: '87',
+      name: '中国大陆'
+    },
+    {
+      code: '88',
+      name: '中国大陆'
+    },
+    {
+      code: '89',
+      name: '中国大陆'
     }
   ]
   const areaCodes = [
     {
-      code: '86',
-      name: '中国大陆'
+      group: 'A',
+      list: [
+        {
+          code: '86',
+          name: '中国大陆'
+        },
+        {
+          code: '87',
+          name: '中国大陆'
+        },
+        {
+          code: '88',
+          name: '中国大陆'
+        },
+        {
+          code: '89',
+          name: '中国大陆'
+        }
+      ]
+    },
+    {
+      group: 'B',
+      list: [
+        {
+          code: '861',
+          name: '中国大陆'
+        },
+        {
+          code: '871',
+          name: '中国大陆'
+        },
+        {
+          code: '881',
+          name: '中国大陆'
+        },
+        {
+          code: '891',
+          name: '中国大陆'
+        }
+      ]
+    },
+    {
+      group: 'C',
+      list: [
+        {
+          code: '186',
+          name: '中国大陆'
+        },
+        {
+          code: '187',
+          name: '中国大陆'
+        },
+        {
+          code: '188',
+          name: '中国大陆'
+        },
+        {
+          code: '189',
+          name: '中国大陆'
+        }
+      ]
+    },
+    {
+      group: 'D',
+      list: [
+        {
+          code: '816',
+          name: '中国大陆'
+        },
+        {
+          code: '817',
+          name: '中国大陆'
+        },
+        {
+          code: '818',
+          name: '中国大陆'
+        },
+        {
+          code: '819',
+          name: '中国大陆'
+        }
+      ]
     }
+
   ];
   const myLabel = '常用';
 
@@ -58,7 +152,18 @@ export default (): React.ReactNode => {
   const handleInput = () => {}
   const handleClear = () => {}
   const handleMobileFocus = () => {}
-  const handleClickLocation = () => {}
+  const handleClickMobilePrefix = () => {
+    setShowAreaCodePopup(true);
+  }
+  const handleClickLocation = () => {
+    // TODO 唤醒地图
+  }
+  const handleCloseAddressDialog = () => {
+    setShowAddressDialog(false);
+  }
+  const handleShowAddressDialog = () => {
+    setShowAddressDialog(true);
+  }
   const handleClickDetailInput = () => {}
   const handleClickTag = () => {}
   const handleChangeDefault = () => {}
@@ -67,7 +172,9 @@ export default (): React.ReactNode => {
   const handleClickSniff = () => {}
   const handleConfirm = () => {}
   const handleDel = () => {}
-  const handleAreaCodePopupClose = () => {}
+  const handleAreaCodePopupClose = () => {
+    setShowAreaCodePopup(false);
+  }
   const handleClickAreaCode = (param: string) => {
     setMobilePrefix(param);
   }
@@ -85,7 +192,7 @@ export default (): React.ReactNode => {
           </View>
           <View className={`${blockName}__form-item`}>
             <View className={`${blockName}__item`}>联系方式</View>
-            <View className={`${blockName}__prefix`}>
+            <View className={`${blockName}__prefix`} onClick={handleClickMobilePrefix}>
               +{mobilePrefix}
               <View className={`${blockName}__prefix-more`} />
             </View>
@@ -94,9 +201,9 @@ export default (): React.ReactNode => {
             </View>
             { addressInfo.mobile && <Icon className={`${blockName}__clear`} onClick={handleClear} type="close" /> }
           </View>
-          <View className={`${blockName}__form-item ${blockName}__form-item-area`}>
+          <View className={`${blockName}__form-item ${blockName}__form-item-area}`} >
             <View className={`${blockName}__item`}>所在地区</View>
-            <View className={`${blockName}__other`}>
+            <View className={`${blockName}__other`} onClick={handleShowAddressDialog}>
               {
                 addressInfo.addressNames.length > 0 && (
                   `${addressInfo.addressNames.join(` `)}`
@@ -113,7 +220,9 @@ export default (): React.ReactNode => {
                   定位
                 </View>
               ) || (
-                <Icon type="right" className={`${blockName}__form-item-icon`} />
+                <View className={`${blockName}__form-item-location`}>
+                  <Icon type="right" className={`${blockName}__form-item-arrow`} />
+                </View>
               )
             }
           </View>
@@ -134,7 +243,7 @@ export default (): React.ReactNode => {
               <Text className={`${blockName}__tags-tag ${addressInfo.label === '公司' && `${blockName}__tags-tag-cur`}`} onClick={handleClickTag}>公司</Text>
               <Text className={`${blockName}__tags-tag ${addressInfo.label === '学校' && `${blockName}__tags-tag-cur`}`} onClick={handleClickTag}>学校</Text>
               <Text className={`${blockName}__tags-tag ${addressInfo.label === '家' && `${blockName}__tags-tag-cur`}`} onClick={handleClickTag}>家</Text>
-              {
+              {/* {
                 !myLabel && (
                   <Text className={`${blockName}__tags-tag ${blockName}__plus-tag`}>
                     <Text className={`${blockName}__plus`}></Text>
@@ -156,7 +265,7 @@ export default (): React.ReactNode => {
                     }
                   </Fragment>
                 )
-              }
+              } */}
             </View>
           </View>
         </View>
@@ -194,7 +303,7 @@ export default (): React.ReactNode => {
           </View>
         </View>
       </View>
-      <AddressLayer />
+      <AddressLayer show={showAddressDialog} showAddressLayer={false} onClose={handleCloseAddressDialog} title={`所在地区`} />
       {
         showAreaCodePopup && (
           <Popup onClose={handleAreaCodePopupClose} title="电话区号" >
@@ -209,10 +318,14 @@ export default (): React.ReactNode => {
               </View>
               <ScrollView className={`${blockName}__area-code-list`} scrollY>
                 {
-                  areaCodes.map(item => (
+                  areaCodes.map(groupItem => (
                     <Fragment>
-                      <View className={`${blockName}__area-code-item-group`}></View>
-                      <View className={`${blockName}__area-code-item ${addressInfo.areaCode === item.code && `${blockName}__area-code-item--on`}`} onClick={() => handleClickAreaCode(item.code)}>{item.name} +{item.code}</View>
+                      <View className={`${blockName}__area-code-item ${blockName}__area-code-item-group`}>{groupItem.group}</View>
+                      {
+                        groupItem.list.map(item => (
+                          <View className={`${blockName}__area-code-item ${mobilePrefix === item.code && `${blockName}__area-code-item--on`}`} onClick={() => handleClickAreaCode(item.code)}>{item.name} +{item.code}</View>
+                        ))
+                      }
                     </Fragment>
                   ))
                 }

@@ -1,0 +1,87 @@
+$preCls: "koany-index-goods";
+
+.#{$preCls} {
+  &__title {
+
+  }
+  &__body {
+    display: flex;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    justify-content: space-between;
+    margin: 0 24px 24px;
+  }
+  &__list {
+    width: 345px;
+  }
+  &__item {
+    width: 345px;
+    border-radius: 10px;
+    background-color: #fff;
+    overflow: hidden;
+    margin-bottom: 10px;
+  }
+  &__cover {
+    width: 350px;
+    height: 350px;
+    overflow: hidden;
+    max-height: 520px;
+    &-image {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+  }
+  &__info {
+    padding: 20px;
+  }
+  &__name {
+    font-size: 26px;
+    color: #262626;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: break-all;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+  }
+  &__price {
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 24px;
+    color: #f2270c;
+    align-items: center;
+    margin-top: 10px;
+    position: relative;
+    overflow: hidden;
+    &-text {
+      margin-right: 10px;
+    }
+    &-tag {
+      font-size: 20px;
+      border: 1px solid;
+      padding: 0 4px;
+      border-radius: 5px;
+      margin-left: 10px;
+      line-height: 1.5;
+    }
+    &-content {
+      font-size: 24px;
+      display: flex;
+      align-items: baseline;
+      margin-top: -3px;
+      &-num {
+        font-size: 32px;
+      }
+    }
+    &-old {
+      color: #999;
+      font-size: 24px;
+      display: flex;
+      &--through {
+        text-decoration: line-through;
+      }
+    }
+  }
+
+}

@@ -41,14 +41,10 @@ const NumberPicker: React.FC<NumberPickerProps> = ({
   const handleFocus = () => {}
 
   return (
-    <View className={`${blockName} relative flex ${className}`}>
-      <View onClick={handleClickMinus} className={`number-minus ${Number(number) <= min*1 ? 'disabled' : ''} inline-flex items-center`} style={{ width: `40rpx`, height: `54rpx` }}>
-        <Icon type="move" />
-      </View>
+    <View className={`${blockName} ${className}`}>
+      <View onClick={handleClickMinus} className={`${blockName}__number-minus ${Number(number) <= min*1 ? `${blockName}__disabled` : ''}`}>{` `}</View>
       <Input className={`${blockName}__number-input`} type="number" value={number} onBlur={handleBlur} onFocus={handleFocus} />
-      <View onClick={handleClickPlus} className={`number-plus ${Number(number) < max*1 ? 'disabled' : ''} inline-flex items-center`} style={{ width: `40rpx`, height: `54rpx` }}>
-        <Icon type="add" />
-      </View>
+      <View onClick={handleClickPlus} className={`${blockName}__number-plus ${Number(number) < max*1 ? `${blockName}__disabled` : ''}`}>{` `}</View>
     </View>
   );
 }

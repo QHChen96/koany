@@ -2,6 +2,7 @@ import { Icon } from '@/components';
 import { View, Text } from '@tarojs/components';
 import React, { useState } from 'react';
 import './index.scss';
+import { navigateTo } from '@/common';
 
 const blockName = `koany-product-bottom-bar`;
 
@@ -16,10 +17,18 @@ const BottomBar: React.FC<BottomBarProps> = () => {
     num: 10
   };
 
-  const handleToCart = () => {}
+  const handleToCart = () => {
+    navigateTo({
+      url: '/pages/cart/index'
+    })
+  }
   const handleAddCart = () => {}
   const handleAddFavor = () => {}
-  const handleJustBuy = () => {}
+  const handleJustBuy = () => {
+    navigateTo({
+      url: '/pages/order/confirm/index'
+    })
+  }
   const handleShare = () => {}
   return (
     <View className={`${blockName}`}>

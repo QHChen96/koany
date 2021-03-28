@@ -1,7 +1,7 @@
 import { View, Image, Text } from '@tarojs/components';
 import React, { Fragment } from 'react';
 import './index.scss';
-import Taro from '@tarojs/taro';
+import { navigateTo } from '@/common';
 
 const blockName = `koany-search-goods-list`;
 
@@ -16,7 +16,7 @@ const GoodsList: React.FC<GoodsListProps> = ({
 }) => {
 
   const handleToItem = () => {
-    Taro.navigateTo({
+    navigateTo({
       url: `/pages/item/index`
     })
   }

@@ -23,6 +23,7 @@ $preCls: "koany-address-edit";
       line-height: 46PX;
       vertical-align: middle;
     }
+
     &-location {
       position: absolute;
       right: 10PX;
@@ -34,12 +35,18 @@ $preCls: "koany-address-edit";
         margin-right: 4px;
       }
     }
+    &-arrow {
+      color: #999;
+    }
     &-area {
       padding-right: 64PX;
       .#{$preCls}__other {
         padding: 10PX 0;
         line-height: 1.7em;
         min-height: 20PX;
+      }
+      &--no-location {
+        padding-right: 20PX;
       }
     }
     &-addr-detail {
@@ -334,27 +341,27 @@ $preCls: "koany-address-edit";
       font-size: 14PX;
       padding: 0 10PX 10PX 0;
       height: 300PX;
-      &-item-group {
-        font-weight: 700;
-        padding-top: 25PX;
-      }
-      &-item {
-        position: relative;
-        padding: 7PX 0;
-        &--on {
-          color: #e93b3d;
-          &::after {
-            content: "\20";
-            display: block;
-            width: 20PX;
-            height: 20PX;
-            position: absolute;
-            right: 0;
-            top: 50%;
-            margin-top: -10PX;
-            background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoBAMAAAB+0KVeAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAnUExURUdwTOI4O+Q4O+U4O+M4O+Q4O9QqKuQ6OuM4O+M4O+Q4POQ4O+Q5PDV0FdEAAAAMdFJOUwATzlLwxgYvspbce5OGaEkAAAB7SURBVCjPY2AY5oAtFIsg51EsgjaOmGLsPgaYglKnsejuacAU4z4lgMUad0wxRmzWpJ5E5oVCjJoThiwYowgik4+gWCN0CMQtOYxqgw5QKeOaDahWgJRynEB3DFDpnoXorhE6JHykAMPdOiqHMR0udGYCFi+GJgznZAYA9rcWsb62p8AAAAAASUVORK5CYII=);
-            background-size: 20PX;
-          }
+    }
+    &-item-group {
+      font-weight: 700;
+      padding-top: 25PX;
+    }
+    &-item {
+      position: relative;
+      padding: 7PX 0;
+      &--on {
+        color: #e93b3d;
+        &::after {
+          content: "\20";
+          display: block;
+          width: 20PX;
+          height: 20PX;
+          position: absolute;
+          right: 0;
+          top: 50%;
+          margin-top: -10PX;
+          background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoBAMAAAB+0KVeAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAnUExURUdwTOI4O+Q4O+U4O+M4O+Q4O9QqKuQ6OuM4O+M4O+Q4POQ4O+Q5PDV0FdEAAAAMdFJOUwATzlLwxgYvspbce5OGaEkAAAB7SURBVCjPY2AY5oAtFIsg51EsgjaOmGLsPgaYglKnsejuacAU4z4lgMUad0wxRmzWpJ5E5oVCjJoThiwYowgik4+gWCN0CMQtOYxqgw5QKeOaDahWgJRynEB3DFDpnoXorhE6JHykAMPdOiqHMR0udGYCFi+GJgznZAYA9rcWsb62p8AAAAAASUVORK5CYII=);
+          background-size: 20PX;
         }
       }
     }

@@ -3,6 +3,7 @@ import { View, Image, Text } from '@tarojs/components';
 import React from 'react';
 import NumberPicker from '../number-picker';
 import './index.scss';
+import { navigateTo } from '@/common';
 
 const blockName = `koany-cart-product`;
 
@@ -16,7 +17,7 @@ export interface ProductLabel {
   image: string;
   height: number;
   width: number;
- 
+
 }
 export interface CartProductEntity {
   image: string;
@@ -40,12 +41,24 @@ export interface CartProductExtEntity {
 export interface CartProductProps {
   editable: boolean;
   product: CartProductEntity;
+  onChangeSku?: () => void;
 }
 
 const CartProduct: React.FC<CartProductProps> = ({
   editable,
   product,
+  onChangeSku
 }) => {
+
+  const handleToDetail = () => {
+    navigateTo({
+      url: '/pages/item/index'
+    })
+  }
+
+  const handleChangeSku = () => {
+    onChangeSku && onChangeSku();
+  }
 
   return (
     <View className="goods z-1" style={{ paddingTop: `36rpx` }}>
@@ -56,16 +69,8 @@ const CartProduct: React.FC<CartProductProps> = ({
         </View>
       }>
         <View className="main flex relative black-26" style={{ width: `100vw`, fontSize: `20rpx` }}>
-          <View className={`checkbox flex items-center`} style={{ height: `200rpx`, paddingLeft: `36rpx`, paddingRight: `18rpx` }}>
-            {
-                !product.checked && (
-                  <Icon type="round" size={20} />
-                ) || (
-                  <Icon type="round_check_fill" color="#f2270c" size={20} />
-                )
-              }
-          </View>
-          <View className="goods-image relative flex flex-initial flex-shrink-0  flex-col" style={{ paddingTop: `6rpx`, width: `200rpx`, minHeight: `220rpx` }}>
+          <View className={`checkbox ${product.checked ? `checkbox--checked` : ''} flex items-center`} style={{ height: `200rpx`, marginLeft: `36rpx`, marginRight: `18rpx` }}></View>
+          <View onClick={handleToDetail} className="goods-image relative flex flex-initial flex-shrink-0  flex-col" style={{ paddingTop: `6rpx`, width: `200rpx`, minHeight: `220rpx` }}>
             <Image className="image box-shadow-img" style={{ width: `200rpx`, height: `200rpx`, borderRadius: `12rpx` }} lazyLoad mode="aspectFit" src={product.image} />
             {
               product.ext.stockDesc && (
@@ -75,9 +80,8 @@ const CartProduct: React.FC<CartProductProps> = ({
               )
             }
           </View>
-         
           <View className="goods-content flex-1 relative overflow-hidden" style={{ padding: `0 36rpx 0 24rpx` }}>
-            <View className="goods-name line-2" style={{ fontSize: `26rpx`, marginBottom: `12rpx` }}>
+            <View onClick={handleToDetail} className="goods-name line-2" style={{ fontSize: `26rpx`, marginBottom: `12rpx` }}>
               {
                 product.labels && product.labels.map(label => (
                   (label && label.image) && <Image className="tip" mode="heightFix" src={label.image} style={{ width: `${label.width}px`, height: `${label.height}px` }} />
@@ -86,7 +90,7 @@ const CartProduct: React.FC<CartProductProps> = ({
               { product.name }
             </View>
             <View className="goods-content-line flex items-center justify-between">
-              <View className="goods-sku black-26 bg-black bg-opacity-5 flex flex-initial empty-display" style={{ borderRadius: `18rpx`, padding: `0 16rpx`, lineHeight: `36rpx`, minWidth: `160rpx`, margin: `0 0 8rpx`}}>
+              <View onClick={handleChangeSku} className="goods-sku black-26 bg-black bg-opacity-5 flex flex-initial empty-display" style={{ borderRadius: `18rpx`, padding: `0 16rpx`, lineHeight: `36rpx`, minWidth: `160rpx`, margin: `0 0 8rpx`}}>
                 <View className="line-1">{product.mainSku.skuName}</View>
                 <View style={{ marginLeft: `auto` }}>
                   <Icon size={12} type="pull_down" color="black-26" />
@@ -106,9 +110,9 @@ const CartProduct: React.FC<CartProductProps> = ({
             }
             <View className="goods-price-box flex justify-between">
               {
-                (product.hidePrice && 
+                (product.hidePrice &&
                   <View className="goods-price">￥<Text className="large" style={{ fontSize: `36rpx` }}>待发布</Text></View>
-                ) || 
+                ) ||
                 (
                   <View className="goods-price flex-initial red" style={{ fontSize: `24rpx` }}>
                     <View className="price inline-block" style={{ lineHeight: `54rpx`, marginRight: `10rpx` }}>
@@ -120,10 +124,8 @@ const CartProduct: React.FC<CartProductProps> = ({
               }
               <NumberPicker className={`flex-initial flex-shrink-0 self-baseline`} num={product.num} max={product.mainSku.maxBuyNum} min={product.mainSku.minBuyNum} />
             </View>
-
           </View>
         </View>
-
       </SliderView>
     </View>
   );

@@ -1,12 +1,13 @@
 import React, { Fragment, useRef, useState } from 'react'
 import { View, Text } from '@tarojs/components'
 import './index.scss'
-import { NavBar, Horn, ErrRetry, Loading, Back2Top, PullRefresh, Icon } from '@/components'
+import { NavBar, ErrRetry, Loading, Back2Top, PullRefresh, Icon, SkuLayer } from '@/components'
 import { useNavInfo } from '@/hooks'
 import BottomBar from './components/bottom-bar'
 import CartProduct from './components/cart-product'
 import TopBar from './components/top-bar'
 import { getApp, usePageScroll } from '@tarojs/taro'
+import { navigateTo } from '@/common'
 
 const blockName = `koany-cart`;
 
@@ -19,6 +20,7 @@ export default (): React.ReactNode => {
   const [navInfo] = useNavInfo();
   const [editable, setEditable] = useState(false);
   const [addrFixed, setAddrFixed] = useState(false);
+  const [showSkuLayer, setShowSkuLayer] = useState(false);
   const [scrollIndex, setScrollIndex] = useState(0);
   const [pullRefreshStatus, setPullRefreshStatus] = useState('');
   const [back2TopVisabled, setBack2TopVisabled] = useState(false);
@@ -144,9 +146,109 @@ export default (): React.ReactNode => {
     ]
   };
 
+  const skuInfo: SkuInfoEntity = {
+    imageUrl: '//m.360buyimg.com/mobilecms/s750x750_jfs/t1/125393/39/18221/47832/5fab078dEbc040aa5/590d4034236f65ef.jpg',
+    discountInfo: {
+      discountName: '折后',
+      price: {
+        integer: "199",
+        decimal: "99"
+      }
+    },
+    goodsNum: 1,
+    skuName: '天空灰',
+    price: {
+      integer: "299",
+      decimal: "99"
+    },
+    originalPrice: {
+      integer: "1999",
+      decimal: "99"
+    },
+    stock: 10,
+    skuProps: [
+      {
+        title: '颜色',
+        skuPropValues: [
+          {
+            name: '白色',
+            checked: true
+          },
+          {
+            name: '红色'
+          }
+        ]
+      },
+      {
+        title: '尺码',
+        skuPropValues: [
+          {
+            name: '大',
+            checked: true
+          },
+          {
+            name: '小'
+          }
+        ]
+      },
+      {
+        title: '尺码',
+        skuPropValues: [
+          {
+            name: '大',
+            checked: true
+          },
+          {
+            name: '小'
+          }
+        ]
+      },
+      {
+        title: '尺码',
+        skuPropValues: [
+          {
+            name: '大',
+            checked: true
+          },
+          {
+            name: '小'
+          }
+        ]
+      },
+      {
+        title: '尺码',
+        skuPropValues: [
+          {
+            name: '大',
+            checked: true
+          },
+          {
+            name: '小'
+          }
+        ]
+      },
+      {
+        title: '尺码',
+        skuPropValues: [
+          {
+            name: '大',
+            checked: true
+          },
+          {
+            name: '小'
+          }
+        ]
+      }
+    ]
+  };
+
 
   const handleFavorite = () => {}
-  const handleGotoPay = () => {}
+  const handleGotoPay = () => {
+    navigateTo({
+      url: '/pages/order/confirm/index'
+    })
+  }
   const handleEditCheck = () => {}
   const handleQuickClear = () => {}
   const handleRemove = () => {}
@@ -198,6 +300,14 @@ export default (): React.ReactNode => {
     handlePageScroll(res);
   });
 
+  const handleChangeSku = () => {
+    setShowSkuLayer(true);
+  }
+
+  const handleCloseSkuLayer = () => {
+    setShowSkuLayer(false);
+  }
+
 
   return (
     <View className={`${blockName} relative`}>
@@ -246,13 +356,7 @@ export default (): React.ReactNode => {
                   style={{ marginTop: `20rpx`, padding: `36rpx 0`, fontSize: `26rpx`, color: `#262626`, borderRadius: `20rpx` }}>
                   <View className="header w-full black-26 flex items-center" style={{ top: `calc(${addrFixed ? `88rpx + ` : `0px + `}${navInfo.navHeight}px)` }}>
                     <View className="inline-block" style={{ paddingLeft: `36rpx`, paddingRight: `18rpx` }}>
-                      {
-                        !vender.checkedAll && (
-                          <Icon type="round" size={20} />
-                        ) || (
-                          <Icon type="round_check_fill" color="#f2270c" size={20} />
-                        )
-                      }
+                      <View className={`checkbox ${vender.checkedAll ? `checkbox--checked` : ''}`}></View>
                     </View>
                     <View className="icon inline-block" style={{ marginLeft: `8rpx` }}></View>
                     <View className="name inline-block font-medium">{vender.name}</View>
@@ -264,7 +368,7 @@ export default (): React.ReactNode => {
                         <View className="products">
                           {
                             item.products.map(product => (
-                              <CartProduct editable={editable}  product={product} key={`cart-product-${product.id}`} />
+                              <CartProduct onChangeSku={handleChangeSku} editable={editable} product={product} key={`cart-product-${product.id}`} />
                             ))
                           }
                         </View>
@@ -282,6 +386,7 @@ export default (): React.ReactNode => {
       </View>
       <Loading showLoading={false} pageLoading />
       <Back2Top />
+      <SkuLayer onClose={handleCloseSkuLayer} show={showSkuLayer} info={skuInfo} supportTab={false} />
     </View>
   );
 }

@@ -3,6 +3,8 @@ import { View, Text } from '@tarojs/components'
 import { useNavInfo } from '@/hooks'
 import './index.scss'
 import { SliderView } from '@/components'
+import Taro from '@tarojs/taro';
+import { navigateTo } from '@/common'
 
 const blockName = 'koany-address-list';
 
@@ -39,7 +41,16 @@ export default (): React.ReactNode => {
   const handleSlideChange = () => {}
   const handleSetDefault = () => {}
   const handleRemove = () => {}
-  const handleEditAddress = () => {}
+  const handleEditAddress = () => {
+    navigateTo({
+      url: '/pages/address/edit/index'
+    });
+  }
+  const handleToAddAddress = () => {
+    navigateTo({
+      url: '/pages/address/edit/index'
+    });
+  }
   return (
     <View className={`${blockName}`}>
       {
@@ -93,7 +104,7 @@ export default (): React.ReactNode => {
           <View className={`${blockName}__add-addr-import-btn`}>
             微信导入
           </View>
-          <View className={`${blockName}__add-addr-btn`}>新增收货地址</View>
+          <View onClick={handleToAddAddress} className={`${blockName}__add-addr-btn`}>新增收货地址</View>
         </View>
       </View>
 

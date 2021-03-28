@@ -1,10 +1,10 @@
 $preCls: "koany-item";
 .#{$preCls} {
   .split-line {
-    width: 100%;
     height: 1px;
     background: #000;
     opacity: .05;
+    overflow: hidden;
   }
   .padding_bottom {
     padding-bottom: 20px;

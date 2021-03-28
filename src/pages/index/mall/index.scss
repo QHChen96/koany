@@ -1,0 +1,13 @@
+$preCls: "koany-index";
+
+.#{$preCls} {
+  &__floor {
+    overflow: hidden;
+    &-group {
+      border-radius: 24px;
+      overflow: hidden;
+      background-color: #fff;
+      margin: 0 24px 24px;
+    }
+  }
+}

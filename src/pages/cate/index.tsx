@@ -5,7 +5,7 @@ import { Icon, Loading, NavBar, ErrRetry } from '@/components'
 import TabNav from './components/tab-nav'
 import { useNavInfo } from '@/hooks'
 import CateBanner from './components/cate-banner'
-import Taro from '@tarojs/taro';
+import { navigateTo } from '@/common'
 
 const blockName = `koany-cate`;
 
@@ -54,7 +54,7 @@ export default (): React.ReactNode => {
   const handleTouchEnd = () => {}
   const handleTouchMove = () => {}
   const handleSearchBar = () => {
-    Taro.navigateTo({
+    navigateTo({
       url: `/pages/search/index`
     })
   }

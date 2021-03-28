@@ -1,21 +1,64 @@
 .koany-number-picker {
-  position: relative;
   display: flex;
-  height: 54px;
-  align-items: center;
-  text-align: center;
-  font-size: 22px;
+  justify-content: space-between;
+  width: 144px;
+  background: unset;
+  height: 40px;
+  line-height: 40px;
+  border: 0;
   &__number-input {
-    flex: 1 0 auto;
-    display: inline-block;
-    position: relative;
-    box-sizing: border-box;
-    width: 72px;
-    min-height: 36px;
-    vertical-align: middle;
-    color: #262626;
-    margin: 0 4px;
+    background: #f2f2f2;
     border-radius: 4px;
-    background-color: #f2f2f2;
+    font-weight: 700;
+    min-height: unset;
+    width: 72px;
+    height: 36px;
+    line-height: 36px;
+    margin: 0 2px;
+    font-size: 22px;
+    color: #262626;
+    text-align: center;
+    &::after {
+      background-color: #fff;
+    }
+    &::before {
+      background-color: #fff;
+    }
+  }
+  &__number-minus, &__number-plus {
+    position: relative;
+    border-radius: 4px;
+    background: #fff;
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    width: 20PX;
+    height: 20PX;
+    text-align: center;
+    box-sizing: border-box;
+    &::before, &::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+      width: 8PX;
+      height: 2PX;
+      background: #666;
+    }
+  }
+  &__disabled {
+    background: #f2f2f2;
+  }
+  &__number-minus {
+    &::after {
+      display: none;
+    }
+  }
+  &__number-plus {
+    &::after {
+      width: 2PX;
+      height: 8PX;
+    }
   }
 }

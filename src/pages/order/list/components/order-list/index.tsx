@@ -2,7 +2,7 @@ import React, { Fragment } from "react";
 import { View, Text, Image } from '@tarojs/components';
 import './index.scss';
 import { Icon } from "@/components";
-import Taro from '@tarojs/taro';
+import { navigateTo } from "@/common";
 
 const blockName = `koany-order-list`;
 
@@ -105,11 +105,22 @@ const OrderList = ({
 
   const handleToDetail = () => {
 
-    Taro.navigateTo({
+    navigateTo({
       url: '/pages/order/detail/index'
     })
   }
 
+  const handleAction = (btn: any) => {
+    if (btn.type === 'pay') {
+      navigateTo({
+        url: '/pages/order/detail/index'
+      })
+    } else if (btn.type === 're-buy') {
+      navigateTo({
+        url: '/pages/order/confirm/index'
+      })
+    }
+  }
 
   return (
     <View className={`${blockName}`}>
@@ -188,7 +199,7 @@ const OrderList = ({
             <View className={`${blockName}__btns`}>
               {
                 item.handles.map(btn => (
-                  <View className={`${blockName}__btn ${blockName}__btn-${btn.btnType}`}>
+                  <View className={`${blockName}__btn ${blockName}__btn-${btn.btnType}`} onClick={() => handleAction(btn)}>
                     {btn.name}
                   </View>
                 ))

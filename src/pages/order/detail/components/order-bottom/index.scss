@@ -32,13 +32,13 @@ $preCls: "koany-order-detail-bottom";
     padding: 0 36px;
     text-align: center;
     min-width: 56PX;
-    height: 30PX;
-    line-height: 30PX;
-    border-radius: 15PX;
+    height: 32PX;
+    line-height: 32PX;
+    border-radius: 16PX;
     margin: 10PX 0 10PX 10PX;
     flex-shrink: 0;
     position: relative;
-    font-size: 12PX;
+    font-size: 14PX;
     &-red {
       background-image: linear-gradient(135deg,#f2140c,#f2270c 70%,#f24d0c);
       box-shadow: 0 3PX 6PX 0 rgba(242,39,12,.2);

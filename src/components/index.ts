@@ -12,3 +12,4 @@ export { default as Dialog } from './dialog';
 export { default as AddressLayer } from './address-layer';
 export { default as PayConfirmButton } from './pay-confirm-button';
 export { default as Popup } from './popup';
+export { default as SkuLayer } from './sku-layer';

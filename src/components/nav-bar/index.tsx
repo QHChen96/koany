@@ -12,6 +12,7 @@ import './index.scss';
 import useNavInfo from '../../hooks/useNavInfo';
 import Taro from '@tarojs/taro';
 import Icon from '../icon';
+import { navigateBack, navigateTo } from '@/common';
 
 const blockName = 'koany-nav-bar';
 
@@ -195,13 +196,11 @@ const NavBar: React.FC<NavBarProps> = ({
   }, []);
 
   const handleReturn = () => {
-    console.log('return')
-    Taro.navigateBack();
+    navigateBack();
     onBack && onBack();
   }
   const handleGoHome = () => {
-    console.log('home')
-    Taro.switchTab({
+    navigateTo({
       url: '/pages/index/index'
     });
     onHome && onHome();
@@ -209,7 +208,11 @@ const NavBar: React.FC<NavBarProps> = ({
 
   const handleClickLeft = useCallback(
     () => {
-      navBarData.hasReturn && handleReturn() || handleGoHome();
+      if (navBarData.hasReturn) {
+        handleReturn();
+      } else {
+        handleGoHome();
+      }
     },
     [navBarData.hasReturn],
   );

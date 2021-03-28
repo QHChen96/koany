@@ -3,7 +3,7 @@ import { View, Text } from '@tarojs/components';
 import './index.scss';
 import { Icon } from "@/components";
 import AddressDialog, { AddressInfoEntity } from "../address-dialog";
-import Taro from '@tarojs/taro';
+import { navigateTo } from "@/common";
 
 const blockName = `koany-order-address`;
 
@@ -43,8 +43,9 @@ const OrderAddress = ({
     setShowAddressDialog(true);
   }
   const handleToAddressPage = () => {
-    Taro.navigateTo({
-      url: '/pages/address/list/index'
+    navigateTo({
+      url: '/pages/address/list/index',
+      method: 'navigateToByForce'
     })
   }
 

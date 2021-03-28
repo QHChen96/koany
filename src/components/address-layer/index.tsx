@@ -8,8 +8,7 @@ const blockName = `koany-address-layer`;
 export interface AddressLayerProps {
   title?: string;
   show?: boolean;
-  showBack?: boolean;
-  showClose?: boolean;
+  showAddressLayer?: boolean;
   onClose?: () => void;
 }
 
@@ -33,15 +32,16 @@ export interface AddressItemEntity {
 const AddressLayer: React.FC<AddressLayerProps> = ({
   title,
   show=false,
-  showBack,
-  showClose,
+  showAddressLayer=true,
   onClose
 }) => {
   if (!show) {
     return null;
   }
-  const [isShowAddrLayer, setIsShowAddrLayer] = useState<boolean>(show);
-  const [isShowAddrPicker, setIsShowAddrPicker] = useState(false);
+  const [isShowAddrLayer, setIsShowAddrLayer] = useState<boolean>(showAddressLayer);
+  const showBack = showAddressLayer;
+  const showClose = !showAddressLayer;
+  const [isShowAddrPicker, setIsShowAddrPicker] = useState(!showAddressLayer);
   const [loading, setLoading] = useState(false);
   const lbs:LbsEntity = {
     show: true,
@@ -114,7 +114,7 @@ const AddressLayer: React.FC<AddressLayerProps> = ({
     }
   ];
   const handleClose = () => {
-    setIsShowAddrLayer(false);
+    showAddressLayer && setIsShowAddrLayer(false);
     setIsShowAddrPicker(false);
     onClose && onClose();
   }
@@ -122,7 +122,7 @@ const AddressLayer: React.FC<AddressLayerProps> = ({
   const handleClickLbsAddr = () => {}
   const handleClickOtherAddrBtn = () => {
     setIsShowAddrLayer(false);
-    setIsShowAddrPicker(true);
+    showAddressLayer && setIsShowAddrPicker(true);
   }
   const handleSwitchAddress = () => {}
   const handleClickReadOnlyAddr = () => {}
@@ -227,7 +227,7 @@ const AddressLayer: React.FC<AddressLayerProps> = ({
           isShowAddrPicker &&
           <View className={`${blockName}__wrap ${blockName}__picker ${show ? `${blockName}__wrap--show` : ''}`}>
             <View className={`${blockName}__header`} onTouchMove={noScroll} catchMove>
-              <View onClick={handleClickPickerBack} className={`${blockName}__header-back ${showBack || addrLayerList.length ? '' : `${blockName}__disabled`}`}>
+              <View onClick={handleClickPickerBack} className={`${blockName}__header-back ${showBack && addrLayerList.length ? '' : `${blockName}__disabled`}`}>
                 <Icon className={`${blockName}__header-back-icon`} type="back" />
                 返回
               </View>

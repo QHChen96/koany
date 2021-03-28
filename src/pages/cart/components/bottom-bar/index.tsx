@@ -74,14 +74,8 @@ const BottomBar: React.FC<BottomBarProps> = ({
       {
         !editable && (
           <View className={`flex fixed z-bottom b-0 l-0 r-0 items-center black-26 bg-white box-shadow-bottom `} style={{ height: `98rpx`, }}>
-            <View onClick={handleCheckedAll} className="relative h-full text-right black-26 flex justify-end items-center" style={{ width: `136rpx`, fontSize: `24rpx` }}>
-              {
-                !checkedAll && (
-                  <Icon type="round" size={20} />
-                ) || (
-                  <Icon type="round_check_fill" color="#f2270c" size={20} />
-                )
-              }
+            <View onClick={handleCheckedAll} className={`relative h-full black-26 flex items-center`} style={{ width: `136rpx`, fontSize: `24rpx`, paddingLeft: `36rpx` }}>
+              <View className={`checkbox ${checkedAll ? `checkbox--checked` : ''}`}></View>
               <Text style={{ marginLeft: `8rpx` }}>全选</Text>
             </View>
             <View className="relative flex flex-1 justify-center overflow-hidden items-end word-break-all flow-column" style={{ marginLeft: `24rpx` }}>
@@ -102,14 +96,8 @@ const BottomBar: React.FC<BottomBarProps> = ({
           </View>
         ) || (
           <View className={`edit-bar flex fixed z-bottom b-0 l-0 r-0 items-center black-26 bg-white box-shadow-bottom`} style={{ height: `98rpx`, }}>
-            <View onClick={handleCheckedAll} className={`checkbox relative h-full text-right black-26  flex justify-end items-center`} style={{ width: `136rpx`, fontSize: `24rpx` }}>
-              {
-                !checkedAll && (
-                  <Icon type="round" size={20} />
-                ) || (
-                  <Icon type="round_check_fill" color="#f2270c" size={20} />
-                )
-              }
+            <View onClick={handleCheckedAll} className={`relative h-full black-26 flex items-center`} style={{ width: `136rpx`, fontSize: `24rpx`, paddingLeft: `36rpx` }}>
+              <View className={`checkbox ${checkedAll ? `checkbox--checked` : ''}`}></View>
               <Text style={{ marginLeft: `8rpx` }}>全选</Text>
             </View>
             <View className="btns flex flex-1 justify-end items-center" style={{ fontSize: `24rpx`, margin: `0 36rpx` }}>

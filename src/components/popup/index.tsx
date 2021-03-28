@@ -1,5 +1,6 @@
 import { View, Text } from '@tarojs/components';
 import React from 'react';
+import './index.scss';
 
 const blockName = `koany-popup`;
 
@@ -12,7 +13,7 @@ export interface PopupProps {
 }
 
 const Popup: React.FC<PopupProps> = ({
-  zIndex,
+  zIndex=900,
   title,
   rule,
   onClose,
@@ -29,7 +30,7 @@ const Popup: React.FC<PopupProps> = ({
 
   return (
     <View className={`${blockName}`} catchMove>
-      <View className={`${blockName}__mask`} style={`${zIndex && `z-index:${zIndex};`}`} catchMove></View>
+      <View className={`${blockName}__mask`} onClick={handleClose} style={`${zIndex && `z-index:${zIndex};`}`} catchMove></View>
       <View className={`${blockName}__wrap`} style={`${zIndex && `z-index:${zIndex};`}`} catchMove>
         {
           title && (

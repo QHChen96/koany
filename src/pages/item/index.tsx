@@ -1,13 +1,17 @@
 import React, { Fragment, useState, useEffect } from 'react'
-import { View, Text, Image, Button } from '@tarojs/components';
-import { Icon, NavBar } from '@/components';
+import { View, Text, Image, Button  } from '@tarojs/components';
+import { Icon, NavBar, SkuLayer } from '@/components';
 import { useNavInfo } from '@/hooks';
 import './index.scss'
 import FocusSlide from './components/focus-slide';
 import { usePageScroll, useReady } from '@tarojs/taro';
 import Taro from '@tarojs/taro';
-import BottomBar from './components/bottom-bar/index';
+import { SkuInfoEntity } from '@/components/sku-layer';
+import BottomBar from './components/bottom-bar';
 import Specific from './components/specific';
+import { navigateTo } from '@/common';
+
+
 
 const blockName = `koany-item`;
 
@@ -15,6 +19,7 @@ export default (): React.ReactNode => {
   const [navInfo] = useNavInfo();
   const [isShowShare, setIsShowShare] = useState(false);
   const [navTabsShow, setNavTabsShow] = useState(false);
+  const [isShowSkuLayer, setIsShowSkuLayer] = useState(false);
   const [screenInfo, setScreenInfo] = useState({
     windowHeight: 'auto',
     windowWidth: '100%'
@@ -125,9 +130,112 @@ export default (): React.ReactNode => {
   });
 
   const handleToSearch = () => {
-    Taro.navigateTo({
+    navigateTo({
       url: `/pages/search/index`
     })
+  }
+
+  const handleSwitchSku = () => {
+    setIsShowSkuLayer(true);
+  }
+  const handleCloseSkuLayer = () => {
+    setIsShowSkuLayer(false);
+  }
+
+  const skuInfo: SkuInfoEntity = {
+    imageUrl: '//m.360buyimg.com/mobilecms/s750x750_jfs/t1/125393/39/18221/47832/5fab078dEbc040aa5/590d4034236f65ef.jpg',
+    discountInfo: {
+      discountName: '折后',
+      price: {
+        integer: "199",
+        decimal: "99"
+      }
+    },
+    goodsNum: 1,
+    skuName: '天空灰',
+    price: {
+      integer: "299",
+      decimal: "99"
+    },
+    originalPrice: {
+      integer: "1999",
+      decimal: "99"
+    },
+    stock: 10,
+    skuProps: [
+      {
+        title: '颜色',
+        skuPropValues: [
+          {
+            name: '白色',
+            checked: true
+          },
+          {
+            name: '红色'
+          }
+        ]
+      },
+      {
+        title: '尺码',
+        skuPropValues: [
+          {
+            name: '大',
+            checked: true
+          },
+          {
+            name: '小'
+          }
+        ]
+      },
+      {
+        title: '尺码',
+        skuPropValues: [
+          {
+            name: '大',
+            checked: true
+          },
+          {
+            name: '小'
+          }
+        ]
+      },
+      {
+        title: '尺码',
+        skuPropValues: [
+          {
+            name: '大',
+            checked: true
+          },
+          {
+            name: '小'
+          }
+        ]
+      },
+      {
+        title: '尺码',
+        skuPropValues: [
+          {
+            name: '大',
+            checked: true
+          },
+          {
+            name: '小'
+          }
+        ]
+      },
+      {
+        title: '尺码',
+        skuPropValues: [
+          {
+            name: '大',
+            checked: true
+          },
+          {
+            name: '小'
+          }
+        ]
+      }
+    ]
   }
 
   return (
@@ -204,8 +312,8 @@ export default (): React.ReactNode => {
                 )
               }
             </View>
-            <View className={`${blockName}__choice margin_top`}>
-              <View className={`common_margin_left common_padding_column flex_col`} style={{ minHeight: 21 }}>
+            <View className={`${blockName}__choice margin_top`} >
+              <View onClick={handleSwitchSku} className={`common_margin_left common_padding_column flex_col`} style={{ minHeight: 21 }}>
                 <View className="flex_row">
                   <Text className="flex_l common_floor_title">已选</Text>
                   <Text className="flex_c line1 common_content_text" >{product.skuName}, {product.goodsNum}个</Text>
@@ -244,6 +352,7 @@ export default (): React.ReactNode => {
           <BottomBar />
         </View>
       </View>
+      <SkuLayer show={isShowSkuLayer} onClose={handleCloseSkuLayer} info={skuInfo}></SkuLayer>
       {
         isShowShare && (
           <View>

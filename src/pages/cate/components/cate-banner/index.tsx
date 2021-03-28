@@ -22,7 +22,7 @@ const CateBanner: React.FC<CateBannerProps> = ({
     setCurIdx(event.detail.current);
   }
   return (
-    <View className="relative overflow-hidden box-shadow-banner" style={{ margin: `34rpx 24rpx 0 0`, paddingTop: `37.7%`, borderRadius: `24rpx` }}>
+    <View className="relative overflow-hidden box-shadow-banner" style={{ margin: `34rpx 24rpx 0 0`, paddingTop: `37.7%`, borderRadius: `24rpx`, zIndex: 1 }}>
       {
         entries.length === 1 && (
           <View className="absolute t-0 l-0 w-full h-full">
@@ -36,7 +36,7 @@ const CateBanner: React.FC<CateBannerProps> = ({
             <Swiper className="absolute t-0 l-0 w-full h-full" onChange={handleSwiperChange} style={{ borderRadius: `24rpx` }} autoplay circular interval={6000}>
               {
                 entries.map(item => (
-                  <SwiperItem onClick={handleClickBanner} key={`cate-banner-img-${item.id}`}>
+                  <SwiperItem onClick={handleClickBanner} key={`cate-banner-img-${item.id}`} >
                     <Image className="block w-full h-full" src={item.image}></Image>
                   </SwiperItem>
                 ))

@@ -3,7 +3,7 @@ import { View, Image, Text } from '@tarojs/components'
 import './index.scss'
 import { Icon, NavBar } from '@/components'
 import useNavInfo from '../../hooks/useNavInfo';
-import Taro from '@tarojs/taro';
+import { navigateTo } from '@/common';
 
 const blockName = 'koany-my'
 
@@ -17,22 +17,22 @@ export default (): React.ReactNode => {
   }
 
   const handleToWaitPay = () => {
-    Taro.navigateTo({
+    navigateTo({
       url: '/pages/order/list/index'
     })
   }
   const handleToWaitDeliver = () => {
-    Taro.navigateTo({
+    navigateTo({
       url: '/pages/order/list/index'
     })
   }
   const handleToAfterSale = () => {
-    Taro.navigateTo({
+    navigateTo({
       url: '/pages/order/list/index'
     })
   }
   const handleToOrder = () => {
-    Taro.navigateTo({
+    navigateTo({
       url: '/pages/order/list/index'
     })
   }

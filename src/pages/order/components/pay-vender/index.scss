@@ -144,10 +144,11 @@ $preCls: "koany-order-pay-vender";
           position: absolute;
           top: 50%;
           left: 50%;
+          transform: translate(-50%,-50%);
           width: 10PX;
           height: 2PX;
           background: #666;
-          transform: translate(-50%,-50%);
+
         }
         &-add::after {
           width: 2PX;

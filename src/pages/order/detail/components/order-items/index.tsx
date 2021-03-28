@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { View, Image, Map, Text, Input } from '@tarojs/components';
 import './index.scss';
 import { Icon } from "@/components";
+import Taro from '@tarojs/taro';
+import { navigateTo } from "@/common";
 
 const blockName = `koany-order-detail-item`;
 
@@ -40,6 +42,12 @@ const OrderItems = ({
     ]
   }
 
+  const handleToDetail = () => {
+    navigateTo({
+      url: '/pages/item/index'
+    })
+  }
+
   return (
     <View className={`${blockName}`}>
       <View className={`${blockName}__goods`}>
@@ -52,7 +60,7 @@ const OrderItems = ({
         </View>
         {
           shop.productList.map(good => (
-            <View className={`${blockName}__good`}>
+            <View className={`${blockName}__good`} onClick={handleToDetail}>
               <View className={`${blockName}__good-item`}>
                 <View className={`${blockName}__good-cover`}>
                   <Image className={`${blockName}__good-cover-img`} src={good.imageUrl}></Image>
