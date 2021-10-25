@@ -1,13 +1,13 @@
 import { compareVersion } from '@/utils';
 import Taro from '@tarojs/taro';
+import { useSystemInfo } from '.';
 import { NavBarInfo } from '../../global';
 
 const useNavInfo = ():[ NavBarInfo ] => {
   const app = Taro.getApp();
-  if (app.navInfo) {
-    return [{ ...app.navInfo }];
-  } else {
-    const sysInfo = Taro.getSystemInfoSync();
+  if (!app._navInfo_) {
+    const [ sysInfo ] = useSystemInfo();
+    const rect = Taro.getMenuButtonBoundingClientRect();
     const platform = sysInfo.platform,
       version = sysInfo.version,
       statusBarHeight = sysInfo.statusBarHeight,
@@ -16,36 +16,40 @@ const useNavInfo = ():[ NavBarInfo ] => {
       brand = sysInfo.brand,
       model = sysInfo.model,
       isSupportNav = compareVersion(version, "7.0.0") || 'devtools' === platform,
-      capsuleMarginLeft = /ios/i.test(system) ? 7 : 10,
-      capsuleMarginTop = /ios/i.test(system) ? 4 : 8,
-      mainContentHeight = /ios/i.test(system) ? 44 : 46,
-      navHeight = statusBarHeight + mainContentHeight;
+      capsuleMarginLeft = sysInfo.isIOS ? 7 : 10,
+      capsuleMarginTop = sysInfo.isIOS ? 4 : 8,
+      mainContentHeight = sysInfo.isIOS ? 44 : 46,
+      navHeight = statusBarHeight + mainContentHeight,
+      windowWidth = sysInfo.windowWidth,
+      capsuleRight = rect.right || 368,
+      height = sysInfo.isIPX ? 24 : 48,
+      capsuleTop = rect.top || height,
+      capsuleHeight = rect.height || 32,
+      capsuleWidth =  rect.width || 0;
 
-    let capsuleHeight = 32, capsuleWidth = /ios/i.test(system) ? 87 : 96;
-    if (/Android/i.test(system) && compareVersion(version, "7.0.0")) {
-      const rect = Taro.getMenuButtonBoundingClientRect();
-      capsuleHeight = rect.height;
-      capsuleWidth = rect.width;
-    }
-    app.navInfo = {
+    app._navInfo_ = {
+      navbarLeft: windowWidth - capsuleRight,
+      navbarTop: height - statusBarHeight,
+      navbarHeight: capsuleHeight,
       isSupportNav,
       navHeight,
-      capsuleHeight,
       platform,
       version,
       system,
       screenWidth,
       statusBarHeight,
       mainContentHeight,
+      capsuleHeight,
       capsuleWidth,
       capsuleMarginTop,
       capsuleMarginLeft,
+      capsuleRight,
+      capsuleTop,
+      windowWidth,
       brand,
       model
-    };
-    app.systemInfo = sysInfo;
-    return [{...app.navInfo}];
+    } as NavBarInfo;
   }
-
+  return [{ ...app._navInfo_ }];
 }
 export default useNavInfo;

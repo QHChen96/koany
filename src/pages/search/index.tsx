@@ -1,5 +1,5 @@
 import React, { Fragment, useState } from 'react'
-import { View, Text } from '@tarojs/components'
+import { View } from '@tarojs/components'
 import './index.scss'
 import { Back2Top, NavBar, Icon, ErrRetry } from '@/components';
 import { useNavInfo } from '@/hooks'
